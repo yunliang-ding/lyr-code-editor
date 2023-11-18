@@ -1,7 +1,7 @@
 /** 资源包 */
-import { useState } from 'react';
-import { CardForm, Form, SchemaProps } from 'react-core-form';
+import { CreateModal, Form, SchemaProps } from 'react-core-form';
 import { IconPlus, IconFile } from '@arco-design/web-react/icon';
+import { CodeEditor } from '@/code-editor';
 
 const schema = [
   {
@@ -103,43 +103,43 @@ const schema = [
   },
 ] as SchemaProps[];
 
-const initModel = {
-  visible: false,
-  title: '新增脚本',
-  cardProps: {
+export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
+  const [form] = Form.useForm();
+  const depModalForm = CreateModal({
     bodyStyle: {
       background: '#1e1e1e',
       paddingBottom: 0,
       paddingTop: 16,
     },
-  },
-  initialValues: {
-    type: 'javascript',
-    codeWay: 1,
-  },
-};
-
-export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
-  const [form] = Form.useForm();
-  const [model, setModel]: any = useState(initModel);
-  const onClose = () => {
-    setModel(initModel);
-    form.setFieldsValue({
-      name: undefined,
-      content: undefined,
+    initialValues: {
       type: 'javascript',
       codeWay: 1,
-    });
-  };
+    },
+    schema,
+    widgets: {
+      CodeEditor,
+    },
+    onSubmit: async (values) => {
+      const res = await onAddDep(values);
+      if (res?.id) {
+        dependencies.push({
+          ...res,
+          ...values,
+        });
+        setDependencies([...dependencies]);
+      } else {
+        return Promise.reject();
+      }
+    },
+  });
   return (
     <>
       <div className="cloud-component-left-header">
         <span>配置依赖脚本</span>
         <IconPlus
           onClick={() => {
-            setModel({
-              ...model,
-              visible: true,
+            depModalForm.open({
+              title: '添加脚本',
             });
           }}
         />
@@ -164,9 +164,7 @@ export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
                       }[item.type],
                     } as any,
                   } as any);
-                  setModel({
-                    ...model,
-                    visible: true,
+                  depModalForm.open({
                     title: `更新脚本《${item.name}》`,
                     onSubmit: async (values) => {
                       const res = await onUpdateDep({
@@ -176,7 +174,6 @@ export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
                       if (res) {
                         Object.assign(item, values);
                         setDependencies([...dependencies]);
-                        onClose();
                       } else {
                         return Promise.reject();
                       }
@@ -189,36 +186,6 @@ export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
               </div>
             );
           })}
-        </div>
-        {model.visible && (
-          <div className="cloud-component-assets-mask" onClick={onClose} />
-        )}
-        <div
-          className="cloud-component-assets-form"
-          style={{ display: model.visible ? 'flex' : 'none' }}
-        >
-          <CardForm
-            {...{
-              onSubmit: async (values) => {
-                const res = await onAddDep(values);
-                if (res?.id) {
-                  dependencies.push({
-                    ...res,
-                    ...values,
-                  });
-                  setDependencies([...dependencies]);
-                  onClose();
-                } else {
-                  return Promise.reject();
-                }
-              },
-              ...model,
-              form,
-              schema,
-              cancelText: '关闭',
-              onClear: onClose,
-            }}
-          />
         </div>
       </div>
     </>

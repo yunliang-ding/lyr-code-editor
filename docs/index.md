@@ -4,8 +4,6 @@ hero:
   title: react-core-form-code-editor
   desc: react-代码编辑器
   actions:
-    - text: 代码编辑器
-      link: http://dev-ops.yunliang.cloud/website/react-core-form-designer
     - text: 开始使用
       link: /components
 features:
