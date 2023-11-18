@@ -105,9 +105,9 @@ export default () => {
       mode="diff"
       style={{ width: '100%', height: 500 }}
       originalValue={`import ReactDom from 'react-dom'
-import { Button } from 'Antd';
+import { Button } from 'antd';
 `}
-      value={`import { Button } from 'antd';
+      value={`import { Button } from '@arco-design/web-react';
 import ReactDom from 'react-dom'
 `}
     />
@@ -161,7 +161,7 @@ export default () => {
  * background: '#fff'
  */
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '@arco-design/web-react';
 import { CodeEditor } from 'react-core-form-code-editor';
 
 export default () => {
@@ -197,7 +197,7 @@ export default () => {
  * background: '#fff'
  */
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '@arco-design/web-react';
 import { CodeEditor } from 'react-core-form-code-editor';
 
 export default () => {
@@ -235,7 +235,7 @@ export default () => {
  * background: '#fff'
  */
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '@arco-design/web-react';
 import { CodeEditor } from 'react-core-form-code-editor';
 
 export default () => {
@@ -276,7 +276,7 @@ export const user2 = {
  * background: '#fff'
  */
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '@arco-design/web-react';
 import axios from 'axios';
 import { CodeEditor } from 'react-core-form-code-editor';
 
@@ -318,7 +318,7 @@ export const add = () => {
 
 ```jsx
 import React from 'react';
-import { Row, Col, Button } from 'antd';
+import { Grid, Button } from '@arco-design/web-react';
 import { CodeEditor } from 'react-core-form-code-editor';
 
 export default () => {
@@ -339,15 +339,15 @@ export default () => {
       </Button>
       <br />
       <br />
-      <Row>
+      <Grid.Row>
         <div id="test-demo" style={{ display: 'none' }} />
-        <Col span={12}>
+        <Grid.Col span={12}>
           <CodeEditor
             mode="function"
             codeRef={codeRef1}
             style={{ width: '100%', height: 500 }}
             value={`import ReactDom from 'react-dom'
-import { Button } from 'antd';
+import { Button } from '@arco-design/web-react';
 
 const App = () => {
   return <Button>hello</Button>
@@ -355,15 +355,15 @@ const App = () => {
 ReactDom.render(<App />, document.getElementById('test-demo'))
 `}
           />
-        </Col>
-        <Col span={12}>
+        </Grid.Col>
+        <Grid.Col span={12}>
           <CodeEditor
             readOnly
             codeRef={codeRef2}
             style={{ width: '100%', height: 500 }}
           />
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </>
   );
 };
@@ -373,7 +373,7 @@ ReactDom.render(<App />, document.getElementById('test-demo'))
 
 ```jsx
 import React from 'react';
-import { Row, Col, Button } from 'antd';
+import { Grid, Button } from '@arco-design/web-react';
 import { CodeEditor } from 'react-core-form-code-editor';
 
 export default () => {
@@ -394,9 +394,9 @@ export default () => {
       </Button>
       <br />
       <br />
-      <Row>
+      <Grid.Row>
         <div id="test-demo" style={{ display: 'none' }} />
-        <Col span={12}>
+        <Grid.Col span={12}>
           <CodeEditor
             mode="less"
             codeRef={codeRef1}
@@ -413,16 +413,16 @@ export default () => {
 }
             `}
           />
-        </Col>
-        <Col span={12}>
+        </Grid.Col>
+        <Grid.Col span={12}>
           <CodeEditor
             readOnly
             codeRef={codeRef2}
             language="css"
             style={{ width: '100%', height: 500 }}
           />
-        </Col>
-      </Row>
+        </Grid.Col>
+      </Grid.Row>
     </>
   );
 };
@@ -436,7 +436,7 @@ export default () => {
  */
 import React from 'react';
 import ReactDom from 'react-dom';
-import { Button } from 'antd';
+import { Button } from '@arco-design/web-react';
 import axios from 'axios';
 import { CodeEditor } from 'react-core-form-code-editor';
 

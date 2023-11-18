@@ -1,6 +1,7 @@
 /** 资源包 */
 import { useState } from 'react';
-import { CardForm, Form, Icon, SchemaProps } from 'react-core-form';
+import { CardForm, Form, SchemaProps } from 'react-core-form';
+import { IconPlus, IconFile } from '@arco-design/web-react/icon';
 
 const schema = [
   {
@@ -76,7 +77,7 @@ const schema = [
             react: 'javascript',
           }[form.getFieldValue('type')],
         } as any,
-      });
+      } as any);
     },
     props: {
       style: {
@@ -134,9 +135,7 @@ export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
     <>
       <div className="cloud-component-left-header">
         <span>配置依赖脚本</span>
-        <Icon
-          type="add"
-          hover
+        <IconPlus
           onClick={() => {
             setModel({
               ...model,
@@ -164,7 +163,7 @@ export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
                         react: 'javascript',
                       }[item.type],
                     } as any,
-                  });
+                  } as any);
                   setModel({
                     ...model,
                     visible: true,
@@ -185,23 +184,7 @@ export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
                   });
                 }}
               >
-                <Icon
-                  size={14}
-                  type={
-                    {
-                      less: 'file-css',
-                      javascript: 'file-javascript',
-                      react: 'react',
-                    }[item.type] as any
-                  }
-                  color={
-                    {
-                      less: '#1296db',
-                      javascript: '#f4ea2a',
-                      react: '#1890ff',
-                    }[item.type] as any
-                  }
-                />
+                <IconFile />
                 <span style={{ color: '#ddd' }}>{item.name}</span>
               </div>
             );

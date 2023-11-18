@@ -1,6 +1,6 @@
 import MainReact from './react';
 import MainMd from './markdown';
-import { Icon } from 'react-core-form';
+import { IconFile } from '@arco-design/web-react/icon';
 
 export default (props) => {
   if (props.item.componentName.endsWith('.md')) {
@@ -44,7 +44,7 @@ export const injectScript = async (src: string, name) => {
 
 export const IconRender = ({ componentName, ...rest }) => {
   if (componentName.endsWith('.md')) {
-    return <Icon type="file-markdown" {...rest} />;
+    return <IconFile {...rest} />;
   }
-  return <Icon type="react" {...rest} />;
+  return <IconFile {...rest} />;
 };

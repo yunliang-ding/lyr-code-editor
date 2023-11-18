@@ -1,4 +1,4 @@
-import { Icon } from 'react-core-form';
+import { IconFile, IconClose } from '@arco-design/web-react/icon';
 
 export default ({ component, setComponent }) => {
   return (
@@ -9,7 +9,7 @@ export default ({ component, setComponent }) => {
             item.open &&
             [
               {
-                icon: <Icon size={16} type="file-markdown" color="#1890ff" />,
+                icon: <IconFile color="#1890ff" />,
                 name: item.componentName,
                 content: item.react,
               },
@@ -37,7 +37,7 @@ export default ({ component, setComponent }) => {
                       setComponent([...component]);
                     }}
                   >
-                    <Icon type="close" hover />
+                    <IconClose />
                   </span>
                 </div>
               );

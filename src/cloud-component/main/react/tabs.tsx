@@ -1,6 +1,7 @@
-import { Icon, Button } from 'react-core-form';
-import { message, Upload } from 'antd';
+import { Button } from 'react-core-form';
+import { Message, Upload } from '@arco-design/web-react';
 import { downloadFile } from 'react-core-form-tools';
+import { IconClose, IconFile } from '@arco-design/web-react/icon';
 
 export default ({
   component,
@@ -18,17 +19,17 @@ export default ({
             item.open &&
             [
               {
-                icon: <Icon size={14} type="file-javascript" color="#f4ea2a" />,
+                icon: <IconFile />,
                 name: 'index.js',
                 content: item.react,
               },
               {
-                icon: <Icon type="file-css" color="#1890ff" />,
+                icon: <IconFile />,
                 name: 'index.less',
                 content: item.less,
               },
               {
-                icon: <Icon type="file-css" color="#f4ea2a" />,
+                icon: <IconFile />,
                 name: 'props.json',
                 content: item.meta,
               },
@@ -63,7 +64,7 @@ export default ({
                       setComponent([...component]);
                     }}
                   >
-                    <Icon type="close" hover />
+                    <IconClose />
                   </span>
                 </div>
               );
@@ -87,13 +88,12 @@ export default ({
         </Button>
         <Upload
           accept=".json"
-          itemRender={() => null}
-          onChange={async ({ file }) => {
+          onChange={async (e, file) => {
             if (file.status === 'done') {
               open();
               await new Promise((res) => setTimeout(res, 1000));
               try {
-                const jsonArr = JSON.parse(await file.originFileObj.text());
+                const jsonArr = JSON.parse(await file.originFile.text());
                 if (Array.isArray(jsonArr)) {
                   // 去重
                   jsonArr.forEach((jsonItem) => {
@@ -111,10 +111,10 @@ export default ({
                   });
                   setComponent([...component]);
                 } else {
-                  message.warning('导入失败');
+                  Message.warning('导入失败');
                 }
               } catch (err) {
-                message.warning(err);
+                Message.warning(err);
               } finally {
                 close();
               }

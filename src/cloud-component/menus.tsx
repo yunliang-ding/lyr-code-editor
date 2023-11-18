@@ -1,12 +1,12 @@
 /* eslint-disable require-atomic-updates */
 /* eslint-disable @iceworks/best-practices/recommend-polyfill */
-import { Icon } from 'react-core-form';
 import { isEmpty } from 'react-core-form-tools';
 import { useState } from 'react';
 import Dependencies from './dependencies';
 import { IconRender } from './main';
+import { IconPlus } from '@arco-design/web-react/icon';
 
-const reactStr = `import { Button } from 'antd';
+const reactStr = `import { Button } from '@arco-design/web-react';
 
 export default (props) => {
   return <div className="{componentName}">
@@ -99,10 +99,7 @@ export default ({
     <div className="cloud-component-left">
       <div className="cloud-component-left-header">
         <span>组件列表</span>
-        <Icon
-          type="add"
-          hover
-          title="新增云组件"
+        <IconPlus
           onClick={() => {
             if (component.some((i) => i.state === 'edit')) {
               return;

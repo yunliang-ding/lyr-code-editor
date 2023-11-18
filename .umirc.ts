@@ -5,6 +5,9 @@ export default defineConfig({
   title: 'react-core-form-code-editor',
   outputPath: 'docs-dist',
   locales: [['zh-CN', '中文']],
+  favicon:
+    'https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico',
+  logo: 'https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico',
   metas: [
     {
       name: 'keywords',
@@ -15,12 +18,33 @@ export default defineConfig({
       content: '代码编辑器组件',
     },
   ],
+  theme: {
+    '@c-primary': '#165dff',
+  },
   styles: [
     `
+    div,
+    span,
+    td,
+    th,
+    a,
+    button,
+    p,
+    label {
+      font-size: 12px;
+      font-weight: 500;
+    }
+    h2{
+      font-size: 18px !important;
+    }
+    li, input, label{
+      font-weight: 500 !important;
+      font-size: 12px !important;
+    }
     .__dumi-default-menu-list
       > li
       > a {
-        font-size: 14px;
+        font-size: 13px;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -28,26 +52,19 @@ export default defineConfig({
       .__dumi-default-menu-list
       > a
       > span {
-        font-size: 13px;
+        font-size: 12px;
       }
   `,
   ],
-  theme: {
-    '@primary-background-color': '#f0f6ff',
-    '@text-color': '#6a6a6a',
-    '@font-size-base': '12px',
-    '@font-size-small': '12px',
-    '@primary-color': '#2f54eb',
-  },
   extraBabelPlugins: [
     [
       'import',
       {
-        libraryName: 'antd',
-        libraryDirectory: 'lib',
-        style: true,
+        libraryName: '@arco-design/web-react',
+        libraryDirectory: 'es',
+        camel2DashComponentName: false,
+        style: true, // 样式按需加载
       },
-      'antd',
     ],
   ],
   history: { type: 'hash' },

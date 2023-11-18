@@ -12,7 +12,7 @@ https://yun-static.cdn.bcebos.com/file-icon.css // 文件图标库
 
 ```tsx
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from '@arco-design/web-react';
 import { FileExplorer } from 'react-core-form-code-editor';
 import files from './files.json';
 import filesGit from './files-git.json';

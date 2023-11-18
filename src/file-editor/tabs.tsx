@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 import { iconMapping } from '../icon-mapping';
 import { FileProps } from '../file-explorer/types';
-import { Icon } from 'react-core-form';
+import { IconRight } from '@arco-design/web-react/icon';
 
 const prefix = 'ide-editor-file-editor-header';
 
@@ -90,7 +90,7 @@ export default ({
             return (
               <div className={`${prefix}-breadcrumbs-dir`} key={i}>
                 {i}
-                <Icon type="separator" color="#aaa" />
+                <IconRight />
               </div>
             );
           })}

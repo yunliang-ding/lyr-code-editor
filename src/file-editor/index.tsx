@@ -1,7 +1,7 @@
 import { FileEditorProps } from './types';
 import HeaderTabs from './tabs';
 import CodeEditor from '@/code-editor';
-import { CreateSpin } from 'react-core-form';
+import CreateSpin from '@/create-spin';
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { FileProps } from '@/file-explorer/types';
 import { uuid } from 'react-core-form-tools';

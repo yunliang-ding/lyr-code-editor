@@ -3,8 +3,11 @@ import { CodeEditor, CodeProps } from '../index';
 import { debounce } from 'lodash';
 import { useEffect, useRef, useState } from 'react';
 import { decrypt, encrypt } from '../../index';
-import { Icon } from 'react-core-form';
 import { babelParse, babelParseCode, isEmpty } from 'react-core-form-tools';
+import {
+  IconFullscreen,
+  IconFullscreenExit,
+} from '@arco-design/web-react/icon';
 import './index.less';
 
 export default ({
@@ -55,13 +58,19 @@ export default ({
     >
       {errorInfo && <div className="function_data_error_info">{errorInfo}</div>}
       <div className="function_data_box_full_screen">
-        <Icon
-          size={20}
-          type={fullScreen ? 'fullScreenExit' : 'fullScreen'}
-          onClick={() => {
-            setFullScreen(!fullScreen);
-          }}
-        />
+        {fullScreen ? (
+          <IconFullscreen
+            onClick={() => {
+              setFullScreen(!fullScreen);
+            }}
+          />
+        ) : (
+          <IconFullscreenExit
+            onClick={() => {
+              setFullScreen(!fullScreen);
+            }}
+          />
+        )}
       </div>
       <CodeEditor
         value={decrypt(value, false) || defaultCode}
