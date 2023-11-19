@@ -140,67 +140,6 @@
   &-assets {
     overflow: auto;
     height: 160px;
-    &-mask {
-      width: 100vw;
-      height: 100vh;
-      background: #181818;
-      opacity: 0.6;
-      left: 0;
-      top: 0;
-      position: fixed;
-      z-index: 3;
-    }
-    &-form {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, 0%);
-      z-index: 4;
-      width: 60%;
-      box-shadow: 0px 5px 4px 4px #181818;
-      .ant-card-bordered {
-        border: none;
-        background-color: #1e1e1e;
-        .ant-card-head {
-          background: #1e1e1e;
-          color: #fff;
-        }
-        .ant-card-actions {
-          background: #1e1e1e;
-          border-top: 0;
-        }
-      }
-    }
-    .ant-input-show-count-suffix,
-    .ant-modal-title,
-    .ant-form-item-label label,
-    .anticon-close,
-    .anticon-close-circle {
-      color: #ccc !important;
-    }
-    .ant-radio-wrapper {
-      span {
-        color: #aaa;
-      }
-    }
-    .ant-form-item-extra {
-      color: #666;
-    }
-    .ant-btn-default {
-      background: #1e1e1e;
-      color: #fff;
-      border-color: #333;
-    }
-    .ant-input-affix-wrapper {
-      background: #222 !important;
-      border: none !important;
-      outline: none;
-      color: #ddd !important;
-      .ant-input {
-        background-color: #222 !important;
-        color: #ddd !important;
-      }
-    }
     &-files {
       &-file {
         height: 22px;
@@ -210,6 +149,9 @@
         gap: 6px;
         cursor: pointer;
         transition: 0.3s;
+        .arco-icon {
+          color: #fff;
+        }
         &:hover {
           background: #2b3740;
           transition: 0.3s;

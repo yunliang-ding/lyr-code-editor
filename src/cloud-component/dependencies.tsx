@@ -1,5 +1,5 @@
 /** 资源包 */
-import { CreateModal, Form, SchemaProps } from 'react-core-form';
+import { CreateDrawer, SchemaProps } from 'react-core-form';
 import { IconPlus, IconFile } from '@arco-design/web-react/icon';
 import { CodeEditor } from '@/code-editor';
 
@@ -104,12 +104,12 @@ const schema = [
 ] as SchemaProps[];
 
 export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
-  const [form] = Form.useForm();
-  const depModalForm = CreateModal({
-    bodyStyle: {
-      background: '#1e1e1e',
-      paddingBottom: 0,
-      paddingTop: 16,
+  const depModalForm = CreateDrawer({
+    drawerProps: {
+      bodyStyle: {
+        paddingBottom: 0,
+        paddingTop: 16,
+      },
     },
     initialValues: {
       type: 'javascript',
@@ -152,20 +152,11 @@ export default ({ dependencies, setDependencies, onAddDep, onUpdateDep }) => {
                 key={item.name}
                 className="cloud-component-assets-files-file"
                 onClick={() => {
-                  form.setFieldsValue({
-                    ...item,
-                  });
-                  form.setSchemaByName('content', {
-                    props: {
-                      language: {
-                        less: 'less',
-                        javascript: 'javascript',
-                        react: 'javascript',
-                      }[item.type],
-                    } as any,
-                  } as any);
                   depModalForm.open({
                     title: `更新脚本《${item.name}》`,
+                    initialValues: {
+                      ...item,
+                    },
                     onSubmit: async (values) => {
                       const res = await onUpdateDep({
                         ...item,

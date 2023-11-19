@@ -22,6 +22,7 @@ export default () => {
         {
           name: 'uuid',
           type: 'javascript',
+          codeWay: 1,
           content: `window.uuid = (size) => {
   return Math.random().toString().substr(2, size);
 }`,
@@ -29,6 +30,7 @@ export default () => {
         {
           name: 'style',
           type: 'less',
+          codeWay: 1,
           content: `body{
   div{
     box-sizing: border-box;
@@ -38,6 +40,7 @@ export default () => {
         {
           name: 'tools',
           type: 'react',
+          codeWay: 1,
           content: `export default {
   sum: (a, b) => {
     return a + b
