@@ -1,5 +1,5 @@
 import { CodeEditor, CodeProps } from '../index';
-import { debounce } from 'lodash';
+import debounce from 'lodash.debounce';
 import { useEffect, useRef } from 'react';
 
 export default ({

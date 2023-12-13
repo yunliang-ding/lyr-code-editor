@@ -1,6 +1,6 @@
 /* eslint-disable @iceworks/best-practices/recommend-polyfill */
 import { CodeEditor, CodeProps } from '../index';
-import { debounce } from 'lodash';
+import debounce from 'lodash.debounce';
 import { useEffect, useRef, useState } from 'react';
 import './index.less';
 

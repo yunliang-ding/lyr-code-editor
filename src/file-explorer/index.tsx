@@ -7,7 +7,7 @@ import { getOpenFiles } from './util';
 import { isEmpty, uuid } from 'react-core-form-tools';
 import { useContextMenu } from 'react-contexify';
 import Contexify from './contexify';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash.clonedeep';
 import CreateSpin from '@/create-spin';
 import { getFileByPath } from '../util';
 import './index.less';
