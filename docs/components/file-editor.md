@@ -186,6 +186,7 @@ export default () => {
 ```tsx
 import React from 'react';
 import { FileEditor } from 'react-core-form-code-editor';
+import { Button } from '@arco-design/web-react';
 
 const files = [
   {
@@ -206,7 +207,7 @@ const files = [
       return (
         <div>
           <h1 style={{ color: '#fff' }}>这是自定义渲染</h1>
-          <button>测试</button>
+          <Button>测试</Button>
         </div>
       );
     },
@@ -217,7 +218,7 @@ export default () => {
   const editorRef = React.useRef({});
   return (
     <>
-      <button
+      <Button
         style={{ marginBottom: 12 }}
         onClick={() => {
           editorRef.current.addTab({
@@ -232,7 +233,7 @@ export default () => {
         }}
       >
         添加一个自定义渲染
-      </button>
+      </Button>
       <FileEditor
         defaultFiles={files}
         defaultSelectedKey={files[0].path}
