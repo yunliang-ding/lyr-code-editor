@@ -14,12 +14,16 @@ toc: menu
 
 ## 依赖 cdn
 
-```js
-https://g.alicdn.com/code/lib/babel-standalone/7.21.3/babel.min.js // 仅 function 模式需要引入
-https://g.alicdn.com/code/lib/less.js/4.1.3/less.js // 仅 less 模式需要引入
-https://g.alicdn.com/code/lib/prettier/2.0.3/standalone.min.js, // Format With Prettier
-https://g.alicdn.com/code/lib/prettier/2.0.3/parser-typescript.min.js,
-https://react-core-form.oss-cn-beijing.aliyuncs.com/prism.min.js', // vs 自定义主题色
+```html
+<!-- 仅 less 模式需要引入 -->
+<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
+<!-- 仅 function 模式需要引入 -->
+<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/babel-standalone.min.js"></script>
+<!-- Format With Prettier -->
+<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js"></script>
+<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js"></script>
+<!-- 自定义主题色 -->
+<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/prism.min.js"></script>
 ```
 
 ## 基本使用

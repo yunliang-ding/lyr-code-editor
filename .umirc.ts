@@ -60,30 +60,31 @@ export default defineConfig({
   hash: false,
   links: [
     {
-      href: 'https://yun-static.cdn.bcebos.com/file-icon.css',
+      href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
       rel: 'stylesheet',
     },
     {
-      href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/index.css',
+      href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/react-core-form.min.css',
       rel: 'stylesheet',
     },
     {
-      href: 'https://unpkg.com/@arco-design/web-react@latest/dist/css/arco.min.css',
+      href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
       rel: 'stylesheet',
     },
   ],
   scripts: [
-    'https://g.alicdn.com/code/lib/less.js/4.1.3/less.js',
-    'https://g.alicdn.com/code/lib/ali-oss/6.13.0/aliyun-oss-sdk.min.js',
-    'https://g.alicdn.com/code/lib/babel-standalone/7.21.2/babel.min.js',
-    'https://g.alicdn.com/code/lib/prettier/2.0.3/standalone.min.js',
-    'https://g.alicdn.com/code/lib/prettier/2.0.3/parser-typescript.min.js',
+    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/less.min.js',
+    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/aliyun-oss-sdk.min.js',
+    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/babel-standalone.min.js',
+    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js',
+    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js',
+    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prism.min.js',
   ],
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置
     {
       title: 'GitHub',
-      path: 'https://github.com/yunliang-ding/react-core-form',
+      path: 'https://github.com/yunliang-ding/react-core-form-code-editor',
     },
   ],
   apiParser: {

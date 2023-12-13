@@ -6,8 +6,11 @@
  */
 import ReactDOM from 'react-dom';
 import { useEffect, useRef, useState } from 'react';
-import { babelParse, babelParseCode } from 'react-core-form-tools';
-import { MarkdownViewer } from 'react-core-form';
+import {
+  babelParse,
+  babelParseCode,
+  MarkdownViewer,
+} from 'react-core-form-tools';
 import CreateSpin from '@/create-spin';
 import { Interpreter } from 'eval5';
 import Main, { injectStyle } from './main';

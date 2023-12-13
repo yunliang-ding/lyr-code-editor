@@ -1,8 +1,5 @@
-const { getESLintConfig } = require('@iceworks/spec');
-
-module.exports = getESLintConfig('react-ts', {
+module.exports = {
   rules: {
-    '@iceworks/best-practices/no-http-url': 'off',
     '@typescript-eslint/no-require-imports': 'off',
     'react-hooks/exhaustive-deps': 'off',
     '@typescript-eslint/indent': 'off',
@@ -20,4 +17,4 @@ module.exports = getESLintConfig('react-ts', {
       },
     ],
   },
-});
+};
