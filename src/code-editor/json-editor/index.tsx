@@ -24,8 +24,8 @@ export default ({
     });
   }, []);
   return (
-    <div className="json_data_box" style={style}>
-      {errorInfo && <div className="json_data_error_info">{errorInfo}</div>}
+    <div className="json-data-box" style={style}>
+      {errorInfo && <div className="json-data-error-info">{errorInfo}</div>}
       <CodeEditor
         minimapEnabled={false}
         {...rest}
