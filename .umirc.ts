@@ -6,8 +6,8 @@ export default defineConfig({
   outputPath: 'docs-dist',
   locales: [['zh-CN', '中文']],
   favicon:
-    'https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico',
-  logo: 'https://unpkg.byted-static.com/latest/byted/arco-config/assets/favicon.ico',
+    'https://react-core-form.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
+  logo: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
   metas: [
     {
       name: 'keywords',
@@ -32,7 +32,7 @@ export default defineConfig({
     p,
     label {
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 500 !important;
     }
     h2{
       font-size: 18px !important;
@@ -61,10 +61,6 @@ export default defineConfig({
   links: [
     {
       href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
-      rel: 'stylesheet',
-    },
-    {
-      href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/react-core-form.min.css',
       rel: 'stylesheet',
     },
     {

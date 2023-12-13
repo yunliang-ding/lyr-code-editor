@@ -1,7 +1,6 @@
 /* eslint-disable no-alert */
 import { iconMapping } from '../icon-mapping';
 import { FileProps } from '../file-explorer/types';
-import { IconRight } from '@arco-design/web-react/icon';
 
 const prefix = 'ide-editor-file-editor-header';
 
@@ -90,7 +89,20 @@ export default ({
             return (
               <div className={`${prefix}-breadcrumbs-dir`} key={i}>
                 {i}
-                <IconRight />
+                <svg
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="6066"
+                  width="16"
+                  height="16"
+                >
+                  <path
+                    d="M648.533333 486.4L426.666667 264.533333c-12.8-12.8-38.4-12.8-51.2 0-12.8 12.8-12.8 38.4 0 51.2l196.266666 192-196.266666 192c-12.8 12.8-12.8 38.4 0 51.2 12.8 12.8 38.4 12.8 51.2 0l226.133333-217.6c12.8-8.533333 12.8-29.866667-4.266667-46.933333z"
+                    p-id="6067"
+                    fill="#aaa"
+                  ></path>
+                </svg>
               </div>
             );
           })}
