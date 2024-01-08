@@ -5,14 +5,14 @@ toc: menu
 ---
 
 ```js
-https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css // 文件图标库
+https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css // 文件图标库
 ```
 
 ## 基本使用
 
 ```tsx
 import React from 'react';
-import { FileExplorer } from 'react-core-form-code-editor';
+import { FileExplorer } from 'lyr-code-editor';
 import files from './files.json';
 
 export default () => {
@@ -54,7 +54,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { FileExplorer } from 'react-core-form-code-editor';
+import { FileExplorer } from 'lyr-code-editor';
 import files from './files-git.json';
 
 export default () => {

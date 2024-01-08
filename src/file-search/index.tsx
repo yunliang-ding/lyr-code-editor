@@ -4,7 +4,7 @@ import Header from '../header';
 import CreateSpin from '@/create-spin';
 import { useRef } from 'react';
 import FileExplorer, { sleep } from '../file-explorer';
-import { isEmpty } from 'react-core-form-tools';
+import { isEmpty } from 'lyr-extra';
 import './index.less';
 
 const prefixCls = 'ide-editor-file-search';

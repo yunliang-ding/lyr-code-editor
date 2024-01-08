@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { uuid } from 'react-core-form-tools';
+import { uuid } from 'lyr-extra';
 import ReactDOM from 'react-dom';
 import './index.less';
 

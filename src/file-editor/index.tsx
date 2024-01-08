@@ -4,7 +4,7 @@ import CodeEditor from '@/code-editor';
 import CreateSpin from '@/create-spin';
 import { useEffect, useRef, useState, useMemo } from 'react';
 import { FileProps } from '@/file-explorer/types';
-import { uuid } from 'react-core-form-tools';
+import { uuid } from 'lyr-extra';
 import { sleep } from '@/file-explorer';
 import './index.less';
 

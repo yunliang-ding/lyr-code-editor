@@ -2,12 +2,11 @@ import { defineConfig } from 'dumi';
 
 export default defineConfig({
   mode: 'site',
-  title: 'react-core-form-code-editor',
+  title: 'lyr-code-editor',
   outputPath: 'docs-dist',
   locales: [['zh-CN', '中文']],
-  favicon:
-    'https://react-core-form.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
-  logo: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
+  favicon: 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
+  logo: 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/assets/favicon.ico',
   metas: [
     {
       name: 'keywords',
@@ -60,27 +59,27 @@ export default defineConfig({
   hash: false,
   links: [
     {
-      href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
+      href: 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css',
       rel: 'stylesheet',
     },
     {
-      href: 'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
+      href: 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.css',
       rel: 'stylesheet',
     },
   ],
   scripts: [
-    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/less.min.js',
-    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/aliyun-oss-sdk.min.js',
-    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/babel-standalone.min.js',
-    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js',
-    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js',
-    'https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prism.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/less.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/aliyun-oss-sdk.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/babel-standalone.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js',
+    'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prism.min.js',
   ],
   navs: [
     null, // null 值代表保留约定式生成的导航，只做增量配置
     {
       title: 'GitHub',
-      path: 'https://github.com/yunliang-ding/react-core-form-code-editor',
+      path: 'https://github.com/yunliang-ding/lyr-code-editor',
     },
   ],
   apiParser: {

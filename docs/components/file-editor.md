@@ -8,7 +8,7 @@ toc: menu
 
 ```tsx
 import React from 'react';
-import { FileEditor } from 'react-core-form-code-editor';
+import { FileEditor } from 'lyr-code-editor';
 
 const files = [
   {
@@ -60,7 +60,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { FileEditor } from 'react-core-form-code-editor';
+import { FileEditor } from 'lyr-code-editor';
 
 const files = [
   {
@@ -119,7 +119,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { FileEditor } from 'react-core-form-code-editor';
+import { FileEditor } from 'lyr-code-editor';
 
 const files = [
   {
@@ -185,7 +185,7 @@ export default () => {
 
 ```tsx
 import React from 'react';
-import { FileEditor } from 'react-core-form-code-editor';
+import { FileEditor } from 'lyr-code-editor';
 import { Button } from '@arco-design/web-react';
 
 const files = [

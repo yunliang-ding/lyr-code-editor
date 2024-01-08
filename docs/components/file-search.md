@@ -8,7 +8,7 @@ toc: menu
 
 ```tsx
 import React from 'react';
-import { FileSearch } from 'react-core-form-code-editor';
+import { FileSearch } from 'lyr-code-editor';
 
 export default () => {
   const explorerRef = React.useRef({});

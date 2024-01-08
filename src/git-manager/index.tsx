@@ -5,7 +5,7 @@ import FileExplorer, { sleep } from '../file-explorer';
 import Header from '../header';
 import CreateSpin from '@/create-spin';
 import { useRef } from 'react';
-import { isEmpty } from 'react-core-form-tools';
+import { isEmpty } from 'lyr-extra';
 import './index.less';
 
 const prefixCls = 'ide-editor-git-manage';

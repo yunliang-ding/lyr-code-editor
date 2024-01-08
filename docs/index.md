@@ -1,7 +1,7 @@
 ---
-title: react-core-form
+title: lyr-code-editor
 hero:
-  title: react-core-form-code-editor
+  title: lyr-code-editor
   desc: react-代码编辑器
   actions:
     - text: 开始使用

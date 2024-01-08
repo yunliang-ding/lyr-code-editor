@@ -1,8 +1,8 @@
 {
-  "name": "react-core-form-code-editor",
+  "name": "lyr-code-editor",
   "description": "代码编辑器组件",
   "author": "yunliang-ding",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -17,12 +17,11 @@
   "keywords": [
     "react",
     "monaco",
-    "code-editor",
-    "cloud-component"
+    "code-editor"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yunliang-ding/react-core-form-code-editor"
+    "url": "https://github.com/yunliang-ding/lyr-code-editor"
   },
   "lint-staged": {
     "*.{js,jsx,less,md,json}": [
@@ -33,21 +32,21 @@
     ]
   },
   "dependencies": {
+    "lyr-store": "0.0.1",
     "lodash.debounce": "4.0.8",
     "lodash.clonedeep": "4.5.0",
     "react-contexify": "5.0.0",
-    "@monaco-editor/loader": "^1.3.3",
-    "react-core-form-store": "^0.0.3"
+    "@monaco-editor/loader": "^1.3.3"
   },
   "peerDependencies": {
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0",
-    "react-core-form-tools": ">=1.0.1"
+    "lyr-extra": ">=0.0.1"
   },
   "devDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-core-form-tools": "^1.0.0",
+    "lyr-extra": "0.0.1",
     "@arco-design/web-react": "^2.57.0",
     "axios": "1.3.5",
     "@babel/runtime": "7.16.0",

@@ -16,21 +16,21 @@ toc: menu
 
 ```html
 <!-- 仅 less 模式需要引入 -->
-<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
 <!-- 仅 function 模式需要引入 -->
-<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/babel-standalone.min.js"></script>
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/babel-standalone.min.js"></script>
 <!-- Format With Prettier -->
-<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js"></script>
-<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js"></script>
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js"></script>
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js"></script>
 <!-- 自定义主题色 -->
-<script src="https://react-core-form.oss-cn-beijing.aliyuncs.com/prism.min.js"></script>
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/prism.min.js"></script>
 ```
 
 ## 基本使用
 
 ```tsx
 import React from 'react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef = React.useRef({});
@@ -53,8 +53,6 @@ export default () => {
       content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"
     />
     <meta name="revised" content="0.0.18" />
-    <meta name="keywords" content="form-designer, react-core-form" />
-    <meta name="description" content="低代码相关组件" />
     <link rel="stylesheet" href="/umi.css" />
     <script>
       window.routerBase = "/";
@@ -101,7 +99,7 @@ export default () => {
 
 ```jsx
 import React from 'react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   return (
@@ -126,7 +124,7 @@ import ReactDom from 'react-dom'
  * background: '#fff'
  */
 import React from 'react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   let value = [
@@ -166,7 +164,7 @@ export default () => {
  */
 import React from 'react';
 import { Button } from '@arco-design/web-react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef = React.useRef({});
@@ -202,7 +200,7 @@ export default () => {
  */
 import React from 'react';
 import { Button } from '@arco-design/web-react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef = React.useRef({});
@@ -240,7 +238,7 @@ export default () => {
  */
 import React from 'react';
 import { Button } from '@arco-design/web-react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef = React.useRef({});
@@ -282,7 +280,7 @@ export const user2 = {
 import React from 'react';
 import { Button } from '@arco-design/web-react';
 import axios from 'axios';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef = React.useRef({});
@@ -323,7 +321,7 @@ export const add = () => {
 ```jsx
 import React from 'react';
 import { Grid, Button } from '@arco-design/web-react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef1 = React.useRef({});
@@ -378,7 +376,7 @@ ReactDom.render(<App />, document.getElementById('test-demo'))
 ```jsx
 import React from 'react';
 import { Grid, Button } from '@arco-design/web-react';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef1 = React.useRef({});
@@ -442,7 +440,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { Button } from '@arco-design/web-react';
 import axios from 'axios';
-import { CodeEditor } from 'react-core-form-code-editor';
+import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
   const codeRef = React.useRef({});

@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-bitwise */
-import { uuid } from 'react-core-form-tools';
+import { uuid } from 'lyr-extra';
 import { useEffect, useRef, CSSProperties, memo } from 'react';
 import FunctionEditor from './function-editor';
 import JsonEditor from './json-editor';
