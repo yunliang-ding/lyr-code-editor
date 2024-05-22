@@ -1,19 +1,407 @@
----
-title: lyr-code-editor
-hero:
-  title: lyr-code-editor
-  desc: react-代码编辑器
-  actions:
-    - text: 开始使用
-      link: /components
-features:
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
-    title: Code Less Do More
-    desc: 用更少的代码，实现更多的功能
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
-    title: Schema Mode
-    desc: 采用配置的模式、抽离出可复用的模块
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
-    title: Dev Tools
-    desc: 周边开发工具、提高开发效率
----
+> CodeEditor 核心编辑器
+
+- 基于 monaco-editor 二次封装
+- 使用 @monaco-editor/loader 优化加载
+- 更多用法 参考 [monaco](https://microsoft.github.io/monaco-editor/playground.html)
+
+
+## 依赖 cdn
+
+```html
+<!-- 仅 less 模式需要引入 -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
+<!-- 仅 function 模式需要引入 -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/babel-standalone.min.js"></script>
+<!-- Format With Prettier -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js"></script>
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js"></script>
+<!-- 自定义主题色 -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/prism.min.js"></script>
+```
+
+## 基本使用
+
+```tsx | react
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef = React.useRef({});
+  React.useEffect(() => {
+    codeRef.current.getMonacoInstance().then((res) => {
+      console.log(res);
+    });
+  }, []);
+  return (
+    <CodeEditor
+      codeRef={codeRef}
+      style={{ height: 400 }}
+      value={`<!DOCTYPE html>\n
+<html>\n
+
+<body>\n
+  Hello World\n
+</body>\n
+
+</html>\n
+`}
+      onChange={(v) => {
+        console.log('onChange', v);
+      }}
+      language="html"
+    />
+  );
+};
+```
+
+## 改动对比
+
+```jsx | react
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  return (
+    <CodeEditor
+      mode="diff"
+      style={{ width: '100%', height: 500 }}
+      originalValue={`import ReactDom from 'react-dom';\n
+import { Button } from 'antd';\n
+`}
+      value={`import { Button } from '@arco-design/web-react';\n
+import ReactDom from 'react-dom';\n
+`}
+    />
+  );
+};
+```
+
+## 使用 JSON 模式
+
+```tsx | react
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  let value = [
+    {
+      label: '选项1',
+      value: 1,
+    },
+    {
+      label: '选项2',
+      value: 2,
+    },
+    {
+      label: '选项3',
+      value: 3,
+    },
+  ];
+  return (
+    <>
+      <h3>请查看控制台打印、当内容发生改变</h3>
+      <CodeEditor
+        mode="json"
+        value={value}
+        onChange={(code) => {
+          console.log(code);
+        }}
+      />
+    </>
+  );
+};
+```
+
+## 使用 Function 模式
+
+```tsx | react
+import { Button } from '@arco-design/web-react';
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef = React.useRef({});
+  const runApi = async () => {
+    const fn = codeRef.current.getModuleDefault();
+    await fn();
+  };
+  return (
+    <>
+      <Button type="primary" onClick={runApi}>
+        点击打开控制台查看
+      </Button>
+      <br />
+      <br />
+      <CodeEditor
+        mode="function"
+        codeRef={codeRef}
+        style={{ width: '100%', height: 300 }}
+        value={`export default async () => {\n
+  console.log('导出默认函数');\n
+}\n`}
+      />
+    </>
+  );
+};
+```
+
+## 导出默认对象
+
+```tsx | react
+import { Button } from '@arco-design/web-react';
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef = React.useRef({});
+  const runApi = async () => {
+    const obj = codeRef.current.getModuleDefault();
+    console.log(obj);
+  };
+  return (
+    <>
+      <Button type="primary" onClick={runApi}>
+        点击打开控制台查看
+      </Button>
+      <br />
+      <br />
+      <CodeEditor
+        codeRef={codeRef}
+        mode="function"
+        style={{ width: '100%', height: 300 }}
+        value={`export default {\n
+  options: {\n
+    style: {}\n
+  }\n
+}\n`}
+      />
+    </>
+  );
+};
+```
+
+## 导出多个对象
+
+```tsx | react
+import { Button } from '@arco-design/web-react';
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef = React.useRef({});
+  const runApi = async () => {
+    const obj = codeRef.current.getModule();
+    console.log(obj);
+  };
+  return (
+    <>
+      <Button type="primary" onClick={runApi}>
+        点击打开控制台查看
+      </Button>
+      <br />
+      <br />
+      <CodeEditor
+        mode="function"
+        codeRef={codeRef}
+        style={{ width: '100%', height: 300 }}
+        value={`export const user1 = {\n
+  name: 'Test1',\n
+  age: 90\n
+};\n
+export const user2 = {\n
+  name: 'Test2',\n
+  age: 90\n
+}\n`}
+      />
+    </>
+  );
+};
+```
+
+## 使用第三方依赖包
+
+```tsx | react
+import { Button } from '@arco-design/web-react';
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef = React.useRef({});
+  const runApi = async () => {
+    const fns = codeRef.current.getModule();
+    console.log(fns);
+  };
+  return (
+    <>
+      <Button type="primary" onClick={runApi}>
+        点击打开控制台查看
+      </Button>
+      <br />
+      <br />
+      <CodeEditor
+        mode="function"
+        style={{ width: '100%', height: 300 }}
+        codeRef={codeRef}
+        require={{
+          request: "我是request",
+        }}
+        value={`import request from 'request';\n
+
+export const getList = () => {\n
+  console.log('is getList', request)\n
+};\n
+export const add = () => {\n
+  console.log('is add')\n
+};\n`}
+      />
+    </>
+  );
+};
+```
+
+## Es6 => Es5
+
+```jsx | react
+import { Grid, Button } from '@arco-design/web-react';
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef1 = React.useRef({});
+  const codeRef2 = React.useRef({});
+  const runApi = async () => {
+    (await codeRef2.current.getMonacoInstance()).setValue(
+      codeRef1.current.getEs5Code(),
+    );
+  };
+  React.useEffect(() => {
+    runApi();
+  }, []);
+  return (
+    <>
+      <Button type="primary" onClick={runApi}>
+        运行
+      </Button>
+      <br />
+      <br />
+      <Grid.Row>
+        <div id="test-demo" style={{ display: 'none' }} />
+        <Grid.Col span={12}>
+          <CodeEditor
+            mode="function"
+            codeRef={codeRef1}
+            style={{ width: '100%', height: 500 }}
+            value={`import ReactDom from 'react-dom'\n
+import { Button } from '@arco-design/web-react';\n
+
+const App = () => {\n
+  return <Button>hello</Button>\n
+};\n
+ReactDom.render(<App />, document.getElementById('test-demo'))\n
+`}
+          />
+        </Grid.Col>
+        <Grid.Col span={12}>
+          <CodeEditor
+            readOnly
+            codeRef={codeRef2}
+            style={{ width: '100%', height: 500 }}
+          />
+        </Grid.Col>
+      </Grid.Row>
+    </>
+  );
+};
+```
+
+## less => css
+
+```jsx | react
+import { Grid, Button } from '@arco-design/web-react';
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef1 = React.useRef({});
+  const codeRef2 = React.useRef({});
+  const runApi = async () => {
+    (await codeRef2.current.getMonacoInstance()).setValue(
+      await codeRef1.current.getCssCode(),
+    );
+  };
+  React.useEffect(() => {
+    runApi();
+  }, []);
+  return (
+    <>
+      <Button type="primary" onClick={runApi}>
+        运行
+      </Button>
+      <br />
+      <br />
+      <Grid.Row>
+        <div id="test-demo" style={{ display: 'none' }} />
+        <Grid.Col span={12}>
+          <CodeEditor
+            mode="less"
+            codeRef={codeRef1}
+            style={{ width: '100%', height: 500 }}
+            value={`.app{\n
+  .header{\n
+    .title{\n
+      font-size: 12px;\n
+    }\n
+  }\n
+  .body{\n
+    font-size: 12px;\n
+  }\n
+}\n
+            `}
+          />
+        </Grid.Col>
+        <Grid.Col span={12}>
+          <CodeEditor
+            readOnly
+            codeRef={codeRef2}
+            language="css"
+            style={{ width: '100%', height: 500 }}
+          />
+        </Grid.Col>
+      </Grid.Row>
+    </>
+  );
+};
+```
+
+## 一分钟搭建 PlayGround
+
+```tsx | react
+import ReactDom from 'react-dom';
+import { Button } from '@arco-design/web-react';
+import { CodeEditor } from 'lyr-code-editor';
+
+export default () => {
+  const codeRef = React.useRef({});
+  const runApi = async () => {
+    const fns = codeRef.current.getModuleDefault();
+    ReactDom.render(fns(), document.querySelector('#__result__'));
+  };
+  React.useEffect(() => {
+    runApi();
+  }, []);
+  return (
+    <>
+      <Button type="primary" onClick={runApi}>
+        运行
+      </Button>
+      <br />
+      <br />
+      <div style={{ width: '100%', display: 'flex' }}>
+        <CodeEditor
+          mode="function"
+          style={{ width: '50%', height: 300 }}
+          codeRef={codeRef}
+          value={`export default () => {\n
+  return <div>hello world</div>\n
+};\n`}
+        />
+        <div
+          id="__result__"
+          style={{ width: '50%', height: 300, border: '1px solid var(--color-fill-3)' }}
+        />
+      </div>
+    </>
+  );
+};
+```

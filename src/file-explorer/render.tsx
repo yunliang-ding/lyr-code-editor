@@ -81,7 +81,6 @@ export const RenderFileTree = ({
   onFileClick,
   onAddDone,
   renameFileDone,
-  onContextMenu,
 }) => {
   return (
     <Fragment>
@@ -101,9 +100,6 @@ export const RenderFileTree = ({
               title={file.path}
               style={innerStyle}
               className={className}
-              onContextMenu={(e) => {
-                onContextMenu(e, file);
-              }}
               onClick={() => {
                 onFileClick(file);
               }}
@@ -114,7 +110,6 @@ export const RenderFileTree = ({
             </div>
             {file.status === 'expanded' && (
               <RenderFileTree
-                onContextMenu={onContextMenu}
                 dataSource={file.children}
                 selectedKey={selectedKey}
                 prefixCls={prefixCls}

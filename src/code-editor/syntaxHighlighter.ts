@@ -87,8 +87,7 @@ const flattenTokens = (tokens) => {
 };
 
 const textMateService = (code) => {
-  const Window: any = window;
-  const Prism = Window.Prism;
+  const Prism = (window as any).Prism;
   try {
     let tokens = Prism.tokenize(code, Prism.languages.jsx);
     const env = {
@@ -141,7 +140,7 @@ const textMateService = (code) => {
       pos += token.length;
     });
     return classifications.map((classification) => ({
-      range: new window.monaco.Range(
+      range: new (window as any).monaco.Range(
         classification.startLine,
         classification.start,
         classification.endLine,

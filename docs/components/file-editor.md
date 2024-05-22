@@ -1,13 +1,8 @@
----
-order: 3
-title: FileEditor 右侧编辑器区域
-toc: menu
----
+> FileEditor 右侧编辑器区域
 
 ## 基本使用
 
-```tsx
-import React from 'react';
+```tsx | react
 import { FileEditor } from 'lyr-code-editor';
 
 const files = [
@@ -17,8 +12,8 @@ const files = [
     extension: '.tsx',
     name: 'index.tsx',
     notSave: false,
-    content: `export default () => {
-  return 'demo'
+    content: `export default () => {\n
+  return 'demo'\n
 }`,
   },
   {
@@ -27,8 +22,8 @@ const files = [
     extension: '.json',
     name: 'config.json',
     notSave: false,
-    content: `{
-  "name": "123abc"
+    content: `{\n
+  "name": "123abc"\n
 }`,
   },
 ];
@@ -37,7 +32,7 @@ export default () => {
     <FileEditor
       defaultFiles={files}
       defaultSelectedKey={files[0].path}
-      style={{ width: '100%', height: 500 }}
+      style={{ width: '100%', height: 300 }}
       onClose={(file) => {
         console.log('onClose', file);
       }}
@@ -58,8 +53,7 @@ export default () => {
 
 ## 和远程文件对比
 
-```tsx
-import React from 'react';
+```tsx | react
 import { FileEditor } from 'lyr-code-editor';
 
 const files = [
@@ -71,11 +65,11 @@ const files = [
     gitStatus: 'M',
     showDiff: true,
     notSave: false,
-    content: `export default () => {
-  return 'demo'
+    content: `export default () => {\n
+  return 'demo'\n
 }`,
-    stageContent: `export default () => {
-  return 'just test'
+    stageContent: `export default () => {\n
+  return 'just test'\n
 }`,
   },
   {
@@ -86,8 +80,8 @@ const files = [
     gitStatus: 'U',
     showDiff: true,
     notSave: false,
-    content: `{
-  "name": "123abc"
+    content: `{\n
+  "name": "123abc"\n
 }`,
   },
 ];
@@ -96,7 +90,7 @@ export default () => {
     <FileEditor
       defaultFiles={files}
       defaultSelectedKey={files[0].path}
-      style={{ width: '100%', height: 500 }}
+      style={{ width: '100%', height: 300 }}
       onClose={(file) => {
         console.log('onClose', file);
       }}
@@ -117,8 +111,7 @@ export default () => {
 
 ## 自定义右侧操作按钮
 
-```tsx
-import React from 'react';
+```tsx | react
 import { FileEditor } from 'lyr-code-editor';
 
 const files = [
@@ -128,8 +121,8 @@ const files = [
     extension: '.tsx',
     name: 'user.tsx',
     notSave: false,
-    content: `export default () => {
-  return 'demo'
+    content: `export default () => {\n
+  return 'demo'\n
 }`,
   },
   {
@@ -138,8 +131,8 @@ const files = [
     extension: '.json',
     name: 'user.config.json',
     notSave: false,
-    content: `{
-  "name": "123abc"
+    content: `{\n
+  "name": "123abc"\n
 }`,
   },
 ];
@@ -149,7 +142,7 @@ export default () => {
     <FileEditor
       defaultFiles={files}
       defaultSelectedKey={files[0].path}
-      style={{ width: '100%', height: 500 }}
+      style={{ width: '100%', height: 300 }}
       extra={[
         {
           key: 'preview',
@@ -183,8 +176,7 @@ export default () => {
 
 ## 自定义渲染
 
-```tsx
-import React from 'react';
+```tsx | react
 import { FileEditor } from 'lyr-code-editor';
 import { Button } from '@arco-design/web-react';
 
@@ -194,8 +186,8 @@ const files = [
     path: '/User/project/src/demo.tsx',
     extension: '.tsx',
     name: 'demo.tsx',
-    content: `export default () => {
-  return 'demo'
+    content: `export default () => {\n
+  return 'demo'\n
 }`,
   },
   {
@@ -238,7 +230,7 @@ export default () => {
         defaultFiles={files}
         defaultSelectedKey={files[0].path}
         editorRef={editorRef}
-        style={{ width: '100%', height: 500 }}
+        style={{ width: '100%', height: 300 }}
         onClose={(file) => {
           console.log('onClose', file);
         }}
@@ -257,7 +249,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../src/file-editor/index.tsx" hideTitle></API>

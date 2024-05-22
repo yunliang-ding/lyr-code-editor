@@ -43,11 +43,11 @@ export default ({
           ...rest,
         },
       );
-      const originalModel = window.monaco.editor.createModel(
+      const originalModel = (window as any).monaco.editor.createModel(
         originalValue,
         language,
       );
-      const modifiedModal = window.monaco.editor.createModel(value, language);
+      const modifiedModal = (window as any).monaco.editor.createModel(value, language);
       diffEditor.setModel({
         original: originalModel,
         modified: modifiedModal,

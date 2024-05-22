@@ -15,8 +15,8 @@ export default ({
   useEffect(() => {
     Object.assign(codeRef.current, {
       getCssCode: async () => {
-        if (window.less) {
-          const { css } = await window.less.render(valueRef.current);
+        if ((window as any).less) {
+          const { css } = await (window as any).less.render(valueRef.current);
           return css;
         }
         console.error('请引入less.js后使用');

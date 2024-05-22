@@ -1,19 +1,15 @@
----
-order: 2
-title: FileExplorer 文件目录
-toc: menu
----
+> FileExplorer 文件目录
 
+## 文件图标库
 ```js
-https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css // 文件图标库
+https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/monaco-file-icon.css
 ```
 
 ## 基本使用
 
-```tsx
-import React from 'react';
+```tsx | react
 import { FileExplorer } from 'lyr-code-editor';
-import files from './files.json';
+import files from '@/components/files.ts';
 
 export default () => {
   const explorerRef = React.useRef({});
@@ -52,10 +48,9 @@ export default () => {
 
 ## git 标记
 
-```tsx
-import React from 'react';
+```tsx | react
 import { FileExplorer } from 'lyr-code-editor';
-import files from './files-git.json';
+import files from '@/components/files-git.ts';
 
 export default () => {
   const explorerRef = React.useRef({});
@@ -91,7 +86,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../src/file-explorer/index.tsx" hideTitle></API>

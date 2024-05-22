@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 import { RenderFileTree } from './render';
 import { getOpenFiles } from './util';
 import { isEmpty, uuid } from 'lyr-extra';
-import { useContextMenu } from 'react-contexify';
 import Contexify from './contexify';
 import cloneDeep from 'lodash.clonedeep';
 import CreateSpin from '@/create-spin';
@@ -53,15 +52,6 @@ export default ({
       return getOpenFiles(files);
     };
   }, [files]);
-  const { show } = useContextMenu({
-    id: MENU_ID,
-  });
-  const handleContextMenu = (event, file) => {
-    event.preventDefault();
-    show(event, {
-      props: file,
-    });
-  };
   const contexifyMenus = menus || [
     {
       key: 'new folder',
@@ -284,7 +274,6 @@ export default ({
       )}
       <div className={`${prefixCls}-body`}>
         <RenderFileTree
-          onContextMenu={handleContextMenu}
           dataSource={files}
           selectedKey={selectedKey}
           prefixCls={prefixCls}

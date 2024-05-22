@@ -1,22 +1,15 @@
----
-order: 5
-title: GitManager 源码管理
-toc: menu
----
+> GitManager 源码管理
 
 ## 基本使用
 
-```tsx
-import React from 'react';
+```tsx | react
 import { GitManager } from 'lyr-code-editor';
 
 export default () => {
   const explorerRef = React.useRef({});
   const [treeData, setTreeData] = React.useState([]);
-  /** 请求数据 */
   const init = async () => {
     explorerRef.current.openSpin();
-    // 模拟接口
     await new Promise((res) => setTimeout(res, 1000));
     setTreeData([
       {
@@ -61,8 +54,3 @@ export default () => {
     />
   );
 };
-```
-
-## API
-
-<API src="../../src/git-manager/index.tsx" hideTitle></API>

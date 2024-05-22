@@ -1,22 +1,15 @@
----
-order: 4
-title: FileSearch 文件查找
-toc: menu
----
+> FileSearch 文件查找
 
 ## 基本使用
 
-```tsx
-import React from 'react';
+```tsx | react
 import { FileSearch } from 'lyr-code-editor';
 
 export default () => {
   const explorerRef = React.useRef({});
   const [treeData, setTreeData] = React.useState([]);
-  /** 请求数据 */
   const init = async () => {
     explorerRef.current.openSpin();
-    // 模拟接口
     await new Promise((res) => setTimeout(res, 1000));
     setTreeData([
       {
@@ -60,7 +53,3 @@ export default () => {
   );
 };
 ```
-
-## API
-
-<API src="../../src/file-search/index.tsx" hideTitle></API>

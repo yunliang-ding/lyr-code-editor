@@ -1,15 +1,10 @@
-import { Menu, Item } from 'react-contexify';
-import 'react-contexify/dist/ReactContexify.css';
-
-const MENU_ID = 'justTest';
-
 export default ({ menus }) => {
   /** 渲染 vNode */
   return (
-    <Menu id={MENU_ID} theme="dark" animation={false}>
+    <div>
       {menus.map((item: any) => {
-        return <Item {...item}>{item.label}</Item>;
+        return <div {...item}>{item.label}</div>;
       })}
-    </Menu>
+    </div>
   );
 };

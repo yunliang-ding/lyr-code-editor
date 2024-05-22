@@ -122,7 +122,7 @@ export const CodeEditor = memo(
         );
       }
       // Format With Prettier
-      if (window.prettier && ['javascript', 'typescript'].includes(language)) {
+      if ((window as any).prettier && ['javascript', 'typescript'].includes(language)) {
         codeInstance.addAction({
           id: 'MyPrettierFormat',
           label: 'Format With Prettier',
@@ -130,14 +130,14 @@ export const CodeEditor = memo(
           contextMenuOrder: 8,
           run: (editor) => {
             try {
-              const code = window.prettier.format(
+              const code = (window as any).prettier.format(
                 codeInstance
                   .getValue()
                   .replaceAll('\\n', '\n')
                   .replaceAll('\\', ''),
                 {
                   parser: 'typescript',
-                  plugins: window.prettierPlugins,
+                  plugins: (window as any).prettierPlugins,
                 },
               );
               editor.setValue(code);
@@ -176,10 +176,10 @@ export const CodeEditor = memo(
       });
       return new Promise((res) => {
         loader.init().then((monaco) => {
-          if (typeof window.define === 'function' && window.define.amd) {
+          if (typeof (window as any).define === 'function' && (window as any).define.amd) {
             // make monaco-editor's loader work with webpack's umd loader
             // @see https://github.com/microsoft/monaco-editor/issues/2283
-            delete window.define.amd;
+            delete (window as any).define.amd;
           }
           res(createInstance(monaco));
         });
