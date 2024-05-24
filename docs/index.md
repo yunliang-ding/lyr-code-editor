@@ -1,13 +1,19 @@
-> CodeEditor 核心编辑器
+> 目前仅打包了 umd 版本
 
-- 基于 monaco-editor 二次封装
-- 使用 @monaco-editor/loader 优化加载
-- 更多用法 参考 [monaco](https://microsoft.github.io/monaco-editor/playground.html)
-
+```html
+<!-- window.lyrCodeEditor -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/lyr-code-editor.min.js"></script>
+```
 
 ## 依赖 cdn
 
 ```html
+<!-- window.React -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react.production.min.js"></script>
+<!-- window.ReactDOM -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react-dom.production.min.js"></script>
+<!-- window.jsxRuntime -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/jsx-runtime.polyfill.js"></script>
 <!-- 仅 less 模式需要引入 -->
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
 <!-- 仅 function 模式需要引入 -->
@@ -18,6 +24,12 @@
 <!-- 自定义主题色 -->
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/prism.min.js"></script>
 ```
+
+> CodeEditor 核心编辑器
+
+- 基于 monaco-editor 二次封装
+- 使用 @monaco-editor/loader 优化加载
+- 更多用法 参考 [monaco](https://microsoft.github.io/monaco-editor/playground.html)
 
 ## 基本使用
 
@@ -236,7 +248,7 @@ export default () => {
         style={{ width: '100%', height: 300 }}
         codeRef={codeRef}
         require={{
-          request: "我是request",
+          request: '我是request',
         }}
         value={`import request from 'request';\n
 
@@ -398,7 +410,11 @@ export default () => {
         />
         <div
           id="__result__"
-          style={{ width: '50%', height: 300, border: '1px solid var(--color-fill-3)' }}
+          style={{
+            width: '50%',
+            height: 300,
+            border: '1px solid var(--color-fill-3)',
+          }}
         />
       </div>
     </>
