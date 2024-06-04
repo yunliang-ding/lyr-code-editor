@@ -5,7 +5,6 @@ import { useEffect, useRef, useState } from 'react';
 import { RenderFileTree } from './render';
 import { getOpenFiles } from './util';
 import { isEmpty, uuid } from 'lyr-extra';
-import Contexify from './contexify';
 import cloneDeep from 'lodash.clonedeep';
 import CreateSpin from '@/create-spin';
 import { getFileByPath } from '../util';
@@ -33,7 +32,6 @@ export default ({
   onRenameFile = sleep,
   onDeleteFile = sleep,
   explorerRef,
-  menus,
   spinWapper = explorerSpin,
   treeData = [],
 }: FileExplorerProps) => {
@@ -52,38 +50,6 @@ export default ({
       return getOpenFiles(files);
     };
   }, [files]);
-  const contexifyMenus = menus || [
-    {
-      key: 'new folder',
-      label: '新建文件夹',
-      hidden: ({ props }) => props.type === 'file',
-      onClick({ props }) {
-        createFile(props, 'directory');
-      },
-    },
-    {
-      key: 'new file',
-      label: '新建文件',
-      hidden: ({ props }) => props.type === 'file',
-      onClick({ props }) {
-        createFile(props, 'file');
-      },
-    },
-    {
-      key: 'rename',
-      label: '重命名',
-      onClick({ props }) {
-        renameFile(props);
-      },
-    },
-    {
-      key: 'delete',
-      label: '删除',
-      onClick({ props }) {
-        deleteFile(props);
-      },
-    },
-  ];
   /** 文件点击 */
   const onFileClick = (file: FileProps) => {
     if (file.type === 'directory') {
@@ -282,7 +248,6 @@ export default ({
           renameFileDone={renameFileDone}
         />
       </div>
-      {menus !== false && <Contexify menus={contexifyMenus} />}
     </div>
   );
 };

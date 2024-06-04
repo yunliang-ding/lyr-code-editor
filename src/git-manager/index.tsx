@@ -75,22 +75,6 @@ export default ({
           onRefresh={onRefresh}
           onClick={onClick}
           treeData={treeData}
-          menus={[
-            {
-              key: 'disCard',
-              label: 'DisCard Change',
-              onClick({ props }) {
-                console.log(props);
-              },
-            },
-            {
-              key: 'stage',
-              label: 'Stage Change',
-              onClick({ props }) {
-                console.log(props);
-              },
-            },
-          ]}
         />
       </div>
     </div>
