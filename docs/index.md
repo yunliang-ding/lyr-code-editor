@@ -4,9 +4,26 @@
 yarn add lyr-code-editor
 ```
 
+## umd 版本
+
+```html
+<!-- window.lyrCodeEditor -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/lyr-code-editor.min.js"></script>
+```
+
 > 依赖 cdn
 
 ```html
+<!-- window.React -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react.production.min.js"></script>
+<!-- window.ReactDOM -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react-dom.production.min.js"></script>
+<!-- window.arco -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco.min.js"></script>
+<!-- window.arcoicon -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco-icon.min.js"></script>
+<!-- window.jsxRuntime -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/jsx-runtime.polyfill.js"></script>
 <!-- 仅 less 模式需要引入 -->
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
 <!-- 仅 function 模式需要引入 -->

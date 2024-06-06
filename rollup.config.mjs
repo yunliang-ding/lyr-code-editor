@@ -20,16 +20,17 @@ export default defineConfig({
       file: "dist/index.js",
       format: "cjs",
     },
-    // {
-    //   file: "dist/index.umd.js",
-    //   format: "umd",
-    //   name: "lyrCodeEditor",
-    //   globals: {
-    //     react: "React",
-    //     "react-dom": "ReactDOM",
-    //     "react/jsx-runtime": "jsxRuntime"
-    //   },
-    // },
+    {
+      file: "dist/index.umd.js",
+      format: "umd",
+      name: "lyrCodeEditor",
+      globals: {
+        react: "React",
+        "react-dom": "ReactDOM",
+        "react/jsx-runtime": "jsxRuntime",
+        'lyr-extra': 'lyrExtra',
+      },
+    },
   ],
   plugins: [
     resolve(),
