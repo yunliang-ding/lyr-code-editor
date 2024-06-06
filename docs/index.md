@@ -59,14 +59,14 @@ export default () => {
     <CodeEditor
       codeRef={codeRef}
       style={{ height: 400 }}
-      value={`<!DOCTYPE html>\n
-<html>\n
+      value={`<!DOCTYPE html>
+<html>
 
-<body>\n
-  Hello World\n
-</body>\n
+<body>
+  Hello World
+</body>
 
-</html>\n
+</html>
 `}
       onChange={(v) => {
         console.log('onChange', v);
@@ -87,11 +87,11 @@ export default () => {
     <CodeEditor
       mode="diff"
       style={{ width: '100%', height: 500 }}
-      originalValue={`import ReactDom from 'react-dom';\n
-import { Button } from 'antd';\n
+      originalValue={`import ReactDom from 'react-dom';
+import { Button } from 'antd';
 `}
-      value={`import { Button } from '@arco-design/web-react';\n
-import ReactDom from 'react-dom';\n
+      value={`import { Button } from '@arco-design/web-react';
+import ReactDom from 'react-dom';
 `}
     />
   );
@@ -156,9 +156,9 @@ export default () => {
         mode="function"
         codeRef={codeRef}
         style={{ width: '100%', height: 300 }}
-        value={`export default async () => {\n
-  console.log('导出默认函数');\n
-}\n`}
+        value={`export default async () => {
+  console.log('导出默认函数');
+}`}
       />
     </>
   );
@@ -188,11 +188,11 @@ export default () => {
         codeRef={codeRef}
         mode="function"
         style={{ width: '100%', height: 300 }}
-        value={`export default {\n
-  options: {\n
-    style: {}\n
-  }\n
-}\n`}
+        value={`export default {
+  options: {
+    style: {}
+  }
+}`}
       />
     </>
   );
@@ -222,14 +222,14 @@ export default () => {
         mode="function"
         codeRef={codeRef}
         style={{ width: '100%', height: 300 }}
-        value={`export const user1 = {\n
-  name: 'Test1',\n
-  age: 90\n
-};\n
-export const user2 = {\n
-  name: 'Test2',\n
-  age: 90\n
-}\n`}
+        value={`export const user1 = {
+  name: 'Test1',
+  age: 90
+};
+export const user2 = {
+  name: 'Test2',
+  age: 90
+}`}
       />
     </>
   );
@@ -262,14 +262,14 @@ export default () => {
         require={{
           request: '我是request',
         }}
-        value={`import request from 'request';\n
+        value={`import request from 'request';
 
-export const getList = () => {\n
-  console.log('is getList', request)\n
-};\n
-export const add = () => {\n
-  console.log('is add')\n
-};\n`}
+export const getList = () => {
+  console.log('is getList', request)
+};
+export const add = () => {
+  console.log('is add')
+};`}
       />
     </>
   );
@@ -307,13 +307,13 @@ export default () => {
             mode="function"
             codeRef={codeRef1}
             style={{ width: '100%', height: 500 }}
-            value={`import ReactDom from 'react-dom'\n
-import { Button } from '@arco-design/web-react';\n
+            value={`import ReactDom from 'react-dom'
+import { Button } from '@arco-design/web-react';
 
-const App = () => {\n
-  return <Button>hello</Button>\n
-};\n
-ReactDom.render(<App />, document.getElementById('test-demo'))\n
+const App = () => {
+  return <Button>hello</Button>
+};
+ReactDom.render(<App />, document.getElementById('test-demo'))
 `}
           />
         </Grid.Col>
@@ -361,16 +361,16 @@ export default () => {
             mode="less"
             codeRef={codeRef1}
             style={{ width: '100%', height: 500 }}
-            value={`.app{\n
-  .header{\n
-    .title{\n
-      font-size: 12px;\n
-    }\n
-  }\n
-  .body{\n
-    font-size: 12px;\n
-  }\n
-}\n
+            value={`.app{
+  .header{
+    .title{
+      font-size: 12px;
+    }
+  }
+  .body{
+    font-size: 12px;
+  }
+}
             `}
           />
         </Grid.Col>
@@ -416,9 +416,9 @@ export default () => {
           mode="function"
           style={{ width: '50%', height: 300 }}
           codeRef={codeRef}
-          value={`export default () => {\n
-  return <div>hello world</div>\n
-};\n`}
+          value={`export default () => {
+  return <div>hello world</div>
+};`}
         />
         <div
           id="__result__"
