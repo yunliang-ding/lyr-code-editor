@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { uuid } from 'lyr-extra';
+import { uuid } from '@/tools';
 import ReactDOM from 'react-dom';
 import './index.less';
 

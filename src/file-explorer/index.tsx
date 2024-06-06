@@ -4,7 +4,7 @@ import { FileExplorerProps, FileProps } from './types';
 import { useEffect, useRef, useState } from 'react';
 import { RenderFileTree } from './render';
 import { getOpenFiles } from './util';
-import { isEmpty, uuid } from 'lyr-extra';
+import { isEmpty, uuid } from '@/tools';
 import cloneDeep from 'lodash.clonedeep';
 import CreateSpin from '@/create-spin';
 import { getFileByPath } from '../util';

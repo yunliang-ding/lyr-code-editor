@@ -24,6 +24,8 @@ yarn add lyr-code-editor
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/arco-icon.min.js"></script>
 <!-- window.jsxRuntime -->
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/jsx-runtime.polyfill.js"></script>
+<!-- window.eval5 -->
+<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/eval5.min.js"></script>
 <!-- 仅 less 模式需要引入 -->
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
 <!-- 仅 function 模式需要引入 -->

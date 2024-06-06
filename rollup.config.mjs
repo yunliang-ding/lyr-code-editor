@@ -1,34 +1,34 @@
-import { defineConfig } from "rollup";
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import less from "rollup-plugin-less";
-import external from "rollup-plugin-peer-deps-external";
-import { terser } from "rollup-plugin-terser";
-import replace from "rollup-plugin-replace";
+import { defineConfig } from 'rollup';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+import less from 'rollup-plugin-less';
+import external from 'rollup-plugin-peer-deps-external';
+import { terser } from 'rollup-plugin-terser';
+import replace from 'rollup-plugin-replace';
 
 const env = process.env.NODE_ENV;
 
 export default defineConfig({
-  input: "./src/index.ts",
+  input: './src/index.ts',
   output: [
     {
-      file: "dist/index.esm.js",
-      format: "esm",
+      file: 'dist/index.esm.js',
+      format: 'esm',
     },
     {
-      file: "dist/index.js",
-      format: "cjs",
+      file: 'dist/index.js',
+      format: 'cjs',
     },
     {
-      file: "dist/index.umd.js",
-      format: "umd",
-      name: "lyrCodeEditor",
+      file: 'dist/index.umd.js',
+      format: 'umd',
+      name: 'lyrCodeEditor',
       globals: {
-        react: "React",
-        "react-dom": "ReactDOM",
-        "react/jsx-runtime": "jsxRuntime",
-        'lyr-extra': 'lyrExtra',
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        'react/jsx-runtime': 'jsxRuntime',
+        eval5: 'eval5',
       },
     },
   ],
@@ -37,11 +37,11 @@ export default defineConfig({
     external(),
     commonjs(),
     replace({
-      "process.env.NODE_ENV": JSON.stringify(env),
+      'process.env.NODE_ENV': JSON.stringify(env),
     }),
     less({
       insert: true,
-      output: "dist/index.min.css",
+      output: 'dist/index.min.css',
       option: {
         compress: true,
       },
@@ -49,19 +49,19 @@ export default defineConfig({
     terser(),
     typescript({
       compilerOptions: {
-        target: "esnext",
-        module: "esnext",
+        target: 'esnext',
+        module: 'esnext',
         esModuleInterop: true,
-        moduleResolution: "node",
+        moduleResolution: 'node',
         declaration: true,
-        jsx: "react-jsx",
+        jsx: 'react-jsx',
         strict: false,
         sourceMap: false,
         skipLibCheck: true,
-        outDir: "./dist",
+        outDir: './dist',
       },
-      include: ["src/**/*"],
-      exclude: ["node_modules/**/*"],
+      include: ['src/**/*'],
+      exclude: ['node_modules/**/*'],
     }),
   ],
 });
