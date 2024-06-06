@@ -1,19 +1,12 @@
-> 目前仅打包了 umd 版本
+## 安装
 
-```html
-<!-- window.lyrCodeEditor -->
-<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/lyr-code-editor.min.js"></script>
+```shell
+yarn add lyr-code-editor
 ```
 
-## 依赖 cdn
+> 依赖 cdn
 
 ```html
-<!-- window.React -->
-<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react.production.min.js"></script>
-<!-- window.ReactDOM -->
-<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/react-dom.production.min.js"></script>
-<!-- window.jsxRuntime -->
-<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/jsx-runtime.polyfill.js"></script>
 <!-- 仅 less 模式需要引入 -->
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/less.min.js"></script>
 <!-- 仅 function 模式需要引入 -->

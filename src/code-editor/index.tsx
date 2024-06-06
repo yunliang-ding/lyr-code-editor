@@ -208,6 +208,9 @@ export const CodeEditor = memo(
         }
       });
     }, [value]);
+    useEffect(() => {
+      (window as any).monaco?.editor.setTheme(theme)
+    }, [theme]);
     return <div id={id} className="app-code-editor" style={style} />;
   },
 );
