@@ -156,6 +156,9 @@ export default () => {
         mode="function"
         codeRef={codeRef}
         style={{ width: '100%', height: 300 }}
+        onChange={(codeString, res) => {
+          console.log(codeString, res);
+        }}
         value={`export default async () => {
   console.log('导出默认函数');
 }`}
@@ -187,6 +190,9 @@ export default () => {
       <CodeEditor
         codeRef={codeRef}
         mode="function"
+        onChange={(codeString, res) => {
+          console.log(codeString, res);
+        }}
         style={{ width: '100%', height: 300 }}
         value={`export default {
   options: {
@@ -222,6 +228,9 @@ export default () => {
         mode="function"
         codeRef={codeRef}
         style={{ width: '100%', height: 300 }}
+        onChange={(codeString, res) => {
+          console.log(codeString, res);
+        }}
         value={`export const user1 = {
   name: 'Test1',
   age: 90
@@ -261,6 +270,9 @@ export default () => {
         codeRef={codeRef}
         require={{
           request: '我是request',
+        }}
+        onChange={(codeString, res) => {
+          console.log(codeString, res);
         }}
         value={`import request from 'request';
 
@@ -306,15 +318,11 @@ export default () => {
           <CodeEditor
             mode="function"
             codeRef={codeRef1}
+            onChange={(codeString, res) => {
+              console.log(codeString, res);
+            }}
             style={{ width: '100%', height: 500 }}
-            value={`import ReactDom from 'react-dom'
-import { Button } from '@arco-design/web-react';
-
-const App = () => {
-  return <Button>hello</Button>
-};
-ReactDom.render(<App />, document.getElementById('test-demo'))
-`}
+            value={`export default {}`}
           />
         </Grid.Col>
         <Grid.Col span={12}>

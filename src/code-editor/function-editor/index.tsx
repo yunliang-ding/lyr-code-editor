@@ -91,12 +91,14 @@ export default ({
               setErrorInfo('');
               return onChange(undefined);
             }
-            onChange(useEncrypt ? encrypt(codeString) : codeString);
             valueRef.current = codeString; // 同步文本
-            babelParse({
+            const result = babelParse({
               code: codeString,
               require,
+              exportDefault: false,
             });
+            // 校验通过才触发 onChange
+            onChange(useEncrypt ? encrypt(codeString) : codeString, result);
             setErrorInfo('');
           } catch (error) {
             setErrorInfo(error.toString());
