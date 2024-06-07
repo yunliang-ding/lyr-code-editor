@@ -6,7 +6,7 @@ import FunctionEditor from './function-editor';
 import JsonEditor from './json-editor';
 import Diff from './diff';
 import LessEditor from './less-editor';
-import { textMateService } from './syntaxHighlighter';
+import textMateService from './syntaxHighlighter';
 import loader from '@monaco-editor/loader';
 import './index.less';
 
@@ -122,7 +122,10 @@ export const CodeEditor = memo(
         );
       }
       // Format With Prettier
-      if ((window as any).prettier && ['javascript', 'typescript'].includes(language)) {
+      if (
+        (window as any).prettier &&
+        ['javascript', 'typescript'].includes(language)
+      ) {
         codeInstance.addAction({
           id: 'MyPrettierFormat',
           label: 'Format With Prettier',
@@ -176,7 +179,10 @@ export const CodeEditor = memo(
       });
       return new Promise((res) => {
         loader.init().then((monaco) => {
-          if (typeof (window as any).define === 'function' && (window as any).define.amd) {
+          if (
+            typeof (window as any).define === 'function' &&
+            (window as any).define.amd
+          ) {
             // make monaco-editor's loader work with webpack's umd loader
             // @see https://github.com/microsoft/monaco-editor/issues/2283
             delete (window as any).define.amd;
@@ -209,7 +215,7 @@ export const CodeEditor = memo(
       });
     }, [value]);
     useEffect(() => {
-      (window as any).monaco?.editor.setTheme(theme)
+      (window as any).monaco?.editor.setTheme(theme);
     }, [theme]);
     return <div id={id} className="app-code-editor" style={style} />;
   },

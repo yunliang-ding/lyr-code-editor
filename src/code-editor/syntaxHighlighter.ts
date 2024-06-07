@@ -25,7 +25,7 @@ const flattenTagToken = (token) => {
       {
         type: 'end-tag-name',
         content: token.content[0].content[1],
-        length: token.content[0].content[1].length,
+        length: token.content[0].content[1]?.length,
       },
       ...token.content.slice(1, token.content.length - 1),
       {
@@ -86,73 +86,75 @@ const flattenTokens = (tokens) => {
   }, []);
 };
 
-const textMateService = (code) => {
+export default (code: string) => {
   const Prism = (window as any).Prism;
-  try {
-    let tokens = Prism.tokenize(code, Prism.languages.jsx);
-    const env = {
-      code,
-      grammar: Prism.languages.jsx,
-      language: 'jsx',
-      tokens,
-    };
-    Prism.hooks.run('after-tokenize', env);
-    tokens = flattenTokens(tokens);
-    const classifications = [];
-    let pos = 0;
-    const lines = code.split('\n').map((line) => line.length);
-    tokens.forEach((token) => {
-      if (typeof token === 'string') {
-        if (token === 'console') {
-          token = {
-            content: 'console',
-            type: 'globals',
-            length: 7,
-          };
-        } else {
-          pos += token.length;
-          return;
+  if (Prism) {
+    try {
+      let tokens = Prism.tokenize(code, Prism.languages.jsx);
+      const env = {
+        code,
+        grammar: Prism.languages.jsx,
+        language: 'jsx',
+        tokens,
+      };
+      Prism.hooks.run('after-tokenize', env);
+      tokens = flattenTokens(tokens);
+      const classifications = [];
+      let pos = 0;
+      const lines = code.split('\n').map((line) => line.length);
+      tokens.forEach((token) => {
+        if (typeof token === 'string') {
+          if (token === 'console') {
+            token = {
+              content: 'console',
+              type: 'globals',
+              length: 7,
+            };
+          } else {
+            pos += token.length;
+            return;
+          }
         }
-      }
-      const { offset: startOffset, line: startLine } = getLineNumberAndOffset(
-        pos,
-        lines,
-      );
-      const { offset: endOffset, line: endLine } = getLineNumberAndOffset(
-        pos + token.length,
-        lines,
-      );
-      let kind = token.type;
-      if (kind === 'keyword') kind = `${token.content}-keyword`;
-      if (token.content === 'constructor' && token.type === 'function') {
-        kind = 'constructor-keyword';
-      }
-      if (token.content === '=>') {
-        kind = 'arrow-operator';
-      }
-      classifications.push({
-        start: pos + 1 - startOffset,
-        end: pos + 1 + token.length - endOffset,
-        kind,
-        startLine,
-        endLine,
+        const { offset: startOffset, line: startLine } = getLineNumberAndOffset(
+          pos,
+          lines,
+        );
+        const { offset: endOffset, line: endLine } = getLineNumberAndOffset(
+          pos + token.length,
+          lines,
+        );
+        let kind = token.type;
+        if (kind === 'keyword') kind = `${token.content}-keyword`;
+        if (token.content === 'constructor' && token.type === 'function') {
+          kind = 'constructor-keyword';
+        }
+        if (token.content === '=>') {
+          kind = 'arrow-operator';
+        }
+        classifications.push({
+          start: pos + 1 - startOffset,
+          end: pos + 1 + token.length - endOffset,
+          kind,
+          startLine,
+          endLine,
+        });
+        pos += token.length;
       });
-      pos += token.length;
-    });
-    return classifications.map((classification) => ({
-      range: new (window as any).monaco.Range(
-        classification.startLine,
-        classification.start,
-        classification.endLine,
-        classification.end,
-      ),
-      options: {
-        inlineClassName: classification.kind,
-      },
-    }));
-  } catch (e) {
-    console.log('exp:', e);
+      return classifications.map((classification) => ({
+        range: new (window as any).monaco.Range(
+          classification.startLine,
+          classification.start,
+          classification.endLine,
+          classification.end,
+        ),
+        options: {
+          inlineClassName: classification.kind,
+        },
+      }));
+    } catch (e) {
+      console.log('exp:', e);
+    }
+  } else {
+    console.log('dark+ 主题 缺少 Prism 对象');
   }
 };
-
-export { textMateService };
