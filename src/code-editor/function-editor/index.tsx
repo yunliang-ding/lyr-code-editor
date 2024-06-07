@@ -25,16 +25,9 @@ export default ({
   }, [value]);
   useEffect(() => {
     Object.assign(codeRef.current, {
-      getModuleDefault: () => {
-        return babelParse({
-          code: decrypt(valueRef.current, false), // 解码
-          require,
-        });
-      },
       getModule: () => {
         return babelParse({
           code: decrypt(valueRef.current, false), // 解码
-          exportDefault: false,
           require,
         });
       },
@@ -82,7 +75,7 @@ export default ({
         {...rest}
         language="javascript"
         codeRef={codeRef}
-        onChange={debounce(async (codeString) => {
+        onChange={debounce(async (codeString: string) => {
           try {
             if (
               isEmpty(codeString) ||
@@ -95,7 +88,6 @@ export default ({
             const result = babelParse({
               code: codeString,
               require,
-              exportDefault: false,
             });
             // 校验通过才触发 onChange
             onChange(useEncrypt ? encrypt(codeString) : codeString, result);

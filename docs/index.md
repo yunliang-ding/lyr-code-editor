@@ -140,7 +140,7 @@ import { CodeEditor } from 'lyr-code-editor';
 export default () => {
   const codeRef = React.useRef({});
   const runApi = async () => {
-    const fn = codeRef.current.getModuleDefault();
+    const fn = codeRef.current.getModule();
     await fn();
   };
   return (
@@ -175,7 +175,7 @@ import { CodeEditor } from 'lyr-code-editor';
 export default () => {
   const codeRef = React.useRef({});
   const runApi = async () => {
-    const obj = codeRef.current.getModuleDefault();
+    const obj = codeRef.current.getModule();
     console.log(obj);
   };
   return (
@@ -404,7 +404,7 @@ import { CodeEditor } from 'lyr-code-editor';
 export default () => {
   const codeRef = React.useRef({});
   const runApi = async () => {
-    const fns = codeRef.current.getModuleDefault();
+    const fns = codeRef.current.getModule();
     ReactDom.render(fns(), document.querySelector('#__result__'));
   };
   React.useEffect(() => {
