@@ -6,7 +6,6 @@ import FunctionEditor from './function-editor';
 import JsonEditor from './json-editor';
 import Diff from './diff';
 import LessEditor from './less-editor';
-import textMateService from './syntaxHighlighter';
 import loader from '@monaco-editor/loader';
 import './index.less';
 
@@ -87,7 +86,7 @@ export const CodeEditor = memo(
     onSave,
     style = {},
     language = 'javascript',
-    theme = 'vs',
+    theme = 'vs-dark',
     codeRef = useRef<any>({}),
     minimapEnabled = true,
     cdnPath = 'https://g.alicdn.com/code/lib/monaco-editor/0.36.1/min/vs', // '/monaco/min/vs',
@@ -154,15 +153,6 @@ export const CodeEditor = memo(
       // onChange
       codeInstance.onDidChangeModelContent((e) => {
         const code = codeInstance.getValue();
-        if (
-          ['javascript', 'typescript'].includes(language) &&
-          (window as any).Prism
-        ) {
-          oldDecorationsRef.current = codeInstance.deltaDecorations(
-            oldDecorationsRef.current,
-            textMateService(code),
-          );
-        }
         if (!e.isFlush) {
           onChange(code);
         }

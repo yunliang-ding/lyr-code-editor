@@ -73,7 +73,7 @@ export default ({
         value={decrypt(value, false) || defaultCode}
         minimapEnabled={false}
         {...rest}
-        language="typescript"
+        language="javascript"
         codeRef={codeRef}
         onChange={debounce(async (codeString: string) => {
           try {

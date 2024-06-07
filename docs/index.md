@@ -31,8 +31,6 @@ yarn add lyr-code-editor
 <!-- Format With Prettier -->
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-standalone.min.js"></script>
 <script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/cdn/prettier-parser-typescript.min.js"></script>
-<!-- 自定义主题色 -->
-<script src="https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/prism.min.js"></script>
 ```
 
 > CodeEditor 核心编辑器

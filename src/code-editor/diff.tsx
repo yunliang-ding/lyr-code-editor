@@ -19,7 +19,7 @@ export default ({
   originalValue = '',
   language = 'javascript',
   style = {},
-  theme = 'vs',
+  theme = 'vs-dark',
   ...rest
 }: MonacoDiffProps) => {
   useEffect(() => {
