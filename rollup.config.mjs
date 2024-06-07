@@ -28,7 +28,6 @@ export default defineConfig({
         react: 'React',
         'react-dom': 'ReactDOM',
         'react/jsx-runtime': 'jsxRuntime',
-        eval5: 'eval5',
       },
     },
   ],
