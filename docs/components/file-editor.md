@@ -12,8 +12,8 @@ const files = [
     extension: '.tsx',
     name: 'index.tsx',
     notSave: false,
-    content: `export default () => {\n
-  return 'demo'\n
+    content: `export default () => {
+  return 'demo'
 }`,
   },
   {
@@ -22,8 +22,8 @@ const files = [
     extension: '.json',
     name: 'config.json',
     notSave: false,
-    content: `{\n
-  "name": "123abc"\n
+    content: `{
+  "name": "123abc"
 }`,
   },
 ];
@@ -65,11 +65,11 @@ const files = [
     gitStatus: 'M',
     showDiff: true,
     notSave: false,
-    content: `export default () => {\n
-  return 'demo'\n
+    content: `export default () => {
+  return 'demo'
 }`,
-    stageContent: `export default () => {\n
-  return 'just test'\n
+    stageContent: `export default () => {
+  return 'just test'
 }`,
   },
   {
@@ -80,8 +80,8 @@ const files = [
     gitStatus: 'U',
     showDiff: true,
     notSave: false,
-    content: `{\n
-  "name": "123abc"\n
+    content: `{
+  "name": "123abc"
 }`,
   },
 ];
@@ -121,8 +121,8 @@ const files = [
     extension: '.tsx',
     name: 'user.tsx',
     notSave: false,
-    content: `export default () => {\n
-  return 'demo'\n
+    content: `export default () => {
+  return 'demo'
 }`,
   },
   {
@@ -131,8 +131,8 @@ const files = [
     extension: '.json',
     name: 'user.config.json',
     notSave: false,
-    content: `{\n
-  "name": "123abc"\n
+    content: `{
+  "name": "123abc"
 }`,
   },
 ];
@@ -186,8 +186,8 @@ const files = [
     path: '/User/project/src/demo.tsx',
     extension: '.tsx',
     name: 'demo.tsx',
-    content: `export default () => {\n
-  return 'demo'\n
+    content: `export default () => {
+  return 'demo'
 }`,
   },
   {

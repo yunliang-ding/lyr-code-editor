@@ -87,7 +87,7 @@ export const CodeEditor = memo(
     onSave,
     style = {},
     language = 'javascript',
-    theme = 'vs-dark',
+    theme = 'vs',
     codeRef = useRef<any>({}),
     minimapEnabled = true,
     cdnPath = 'https://g.alicdn.com/code/lib/monaco-editor/0.36.1/min/vs', // '/monaco/min/vs',

@@ -214,6 +214,7 @@ export default ({
                       id={`monaco_${file.path}`}
                       codeRef={codeRef}
                       mode={file.showDiff ? 'diff' : undefined}
+                      theme="vs-dark"
                       language={
                         {
                           '.less': 'less',
