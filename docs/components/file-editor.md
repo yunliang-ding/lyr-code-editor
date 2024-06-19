@@ -90,7 +90,7 @@ export default () => {
     <FileEditor
       defaultFiles={files}
       defaultSelectedKey={files[0].path}
-      style={{ width: '100%', height: 300 }}
+      style={{ width: 1000, height: 300 }}
       onClose={(file) => {
         console.log('onClose', file);
       }}

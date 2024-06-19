@@ -7,6 +7,7 @@ import JsonEditor from './json-editor';
 import Diff from './diff';
 import LessEditor from './less-editor';
 import loader from '@monaco-editor/loader';
+import { loadDarkPlusTheme } from './wasm';
 import './index.less';
 
 export interface CodeProps {
@@ -20,11 +21,11 @@ export interface CodeProps {
    * 默认值
    */
   value?: string;
-  /**
+   /**
    * 主题
    * @default vs-dark
    */
-  theme?: 'vs-dark' | 'vs';
+    theme?: 'vs-dark' | 'vs';
   /**
    * 是否展示小地图
    * @default true
@@ -69,7 +70,7 @@ export interface CodeProps {
    */
   readOnly?: boolean;
   /** cdnPath 地址
-   * @default https://g.alicdn.com/code/lib/monaco-editor/0.36.0/min/vs
+   * @default https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/monaco-editor/0.36.1/vs
    */
   cdnPath?: string;
   /** 加载完毕钩子 */
@@ -85,25 +86,24 @@ export const CodeEditor = memo(
     onChange = () => {},
     onSave,
     style = {},
-    language = 'javascript',
-    theme = 'vs-dark',
+    language = 'javascriptreact',
+    theme = 'vs',
     codeRef = useRef<any>({}),
     minimapEnabled = true,
-    cdnPath = 'https://g.alicdn.com/code/lib/monaco-editor/0.36.1/min/vs', // '/monaco/min/vs',
+    cdnPath = 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/monaco-editor/0.49.0/vs',
     onLoad = () => {},
     ...rest
   }: CodeProps) => {
-    const oldDecorationsRef = useRef({});
     /** 创建实例 */
     const createInstance = (monaco: any) => {
       const codeInstance = monaco.editor.create(document.getElementById(id), {
+        theme,
         language,
         selectOnLineNumbers: true,
         automaticLayout: true,
         tabSize: 2,
         fontSize: 14,
-        theme,
-        fontWeight: '400',
+        fontWeight: "600",
         minimap: {
           enabled: minimapEnabled,
         },
@@ -123,7 +123,7 @@ export const CodeEditor = memo(
       // Format With Prettier
       if (
         (window as any).prettier &&
-        ['javascript', 'typescript'].includes(language)
+        ['javascript', 'typescript', 'javascriptreact'].includes(language)
       ) {
         codeInstance.addAction({
           id: 'MyPrettierFormat',
@@ -184,8 +184,9 @@ export const CodeEditor = memo(
     useEffect(() => {
       const monacoInstance = initialLoad();
       //  同步 window
-      monacoInstance.then((res) => {
-        window[id] = res;
+      monacoInstance.then((editor: any) => {
+        window[id] = editor;
+        loadDarkPlusTheme((window as any).monaco, editor, language);  // 加载dark+、light+主题
       });
       // 挂到 ref
       codeRef.current.getMonacoInstance = async () => {
@@ -204,9 +205,6 @@ export const CodeEditor = memo(
         }
       });
     }, [value]);
-    useEffect(() => {
-      (window as any).monaco?.editor.setTheme(theme);
-    }, [theme]);
     return <div id={id} className="app-code-editor" style={style} />;
   },
 );

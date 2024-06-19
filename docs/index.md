@@ -38,6 +38,7 @@ yarn add lyr-code-editor
 - 基于 monaco-editor 二次封装
 - 使用 @monaco-editor/loader 优化加载
 - 更多用法 参考 [monaco](https://microsoft.github.io/monaco-editor/playground.html)
+- 关于使用 `vscode主题` 参考 [如何在monaco中使用vscode主题](https://www.yunliang.cloud/#/components/monaco-theme)
 
 ## 基本使用
 
@@ -82,7 +83,7 @@ export default () => {
   return (
     <CodeEditor
       mode="diff"
-      style={{ width: '100%', height: 500 }}
+      style={{ width: 1000, height: 500 }}
       originalValue={`import ReactDom from 'react-dom';
 import { Button } from 'antd';
 `}
@@ -295,7 +296,10 @@ export default () => {
   const codeRef2 = React.useRef({});
   const runApi = async () => {
     (await codeRef2.current.getMonacoInstance()).setValue(
-      codeRef1.current.getEs5Code(),
+      window.prettier.format(codeRef1.current.getEs5Code(), {
+        parser: 'typescript',
+        plugins: window.prettierPlugins,
+      }),
     );
   };
   React.useEffect(() => {
