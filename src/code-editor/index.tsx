@@ -21,11 +21,11 @@ export interface CodeProps {
    * 默认值
    */
   value?: string;
-   /**
+  /**
    * 主题
    * @default vs-dark
    */
-    theme?: 'vs-dark' | 'vs';
+   theme?: 'vs-dark' | 'vs';
   /**
    * 是否展示小地图
    * @default true
@@ -87,7 +87,7 @@ export const CodeEditor = memo(
     onSave,
     style = {},
     language = 'javascriptreact',
-    theme = 'vs',
+    theme = 'vs-dark',
     codeRef = useRef<any>({}),
     minimapEnabled = true,
     cdnPath = 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/monaco-editor/0.49.0/vs',

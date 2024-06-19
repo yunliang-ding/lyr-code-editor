@@ -176,7 +176,7 @@ export default ({
   //     window.monaco.setModel(model);
   // };
   return (
-    <div style={style} className={`${prefixCls} show-file-icons ${domKey}`}>
+    <div style={style} className={`monaco-component ${prefixCls} show-file-icons ${domKey}`}>
       {files.length > 0 ? (
         <>
           <HeaderTabs
@@ -214,7 +214,6 @@ export default ({
                       id={`monaco_${file.path}`}
                       codeRef={codeRef}
                       mode={file.showDiff ? 'diff' : undefined}
-                      theme="vs-dark"
                       language={
                         {
                           '.less': 'less',

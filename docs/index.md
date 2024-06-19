@@ -76,7 +76,7 @@ export default () => {
 
 ## 改动对比
 
-```jsx | react
+```tsx | react
 import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
@@ -287,7 +287,7 @@ export const add = () => {
 
 ## Es6 => Es5
 
-```jsx | react
+```tsx | react
 import { Grid, Button } from '@arco-design/web-react';
 import { CodeEditor } from 'lyr-code-editor';
 
@@ -340,7 +340,7 @@ export default () => {
 
 ## less => css
 
-```jsx | react
+```tsx | react
 import { Grid, Button } from '@arco-design/web-react';
 import { CodeEditor } from 'lyr-code-editor';
 

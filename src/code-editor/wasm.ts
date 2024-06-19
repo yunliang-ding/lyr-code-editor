@@ -54,5 +54,5 @@ export const loadDarkPlusTheme = async (monaco, editor, language) => {
   monaco.editor.defineTheme('vs', vsLightPlus);
   setTimeout(() => {
     wireTmGrammars(monaco, registry, grammars, editor);
-  }, 300);
+  }, 100);
 };

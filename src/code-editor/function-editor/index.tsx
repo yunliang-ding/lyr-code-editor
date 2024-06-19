@@ -73,7 +73,7 @@ export default ({
         value={decrypt(value, false) || defaultCode}
         minimapEnabled={false}
         {...rest}
-        language="javascript"
+        language="javascriptreact"
         codeRef={codeRef}
         onChange={debounce(async (codeString: string) => {
           try {

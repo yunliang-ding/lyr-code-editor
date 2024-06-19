@@ -34,17 +34,17 @@ export default ({
         document.getElementById(id),
         {
           theme,
-          // selectOnLineNumbers: true,
-          // automaticLayout: true,
-          // readOnly: true,
-          // renderSideBySide: true,
-          // scrollBeyondLastLine: false,
-          // fontSize: 14,
-          // fontWeight: '600',
-          // minimap: {
-          //   enabled: false,
-          // },
-          // ...rest,
+          selectOnLineNumbers: true,
+          automaticLayout: true,
+          readOnly: true,
+          renderSideBySide: true,
+          scrollBeyondLastLine: false,
+          fontSize: 14,
+          fontWeight: '600',
+          minimap: {
+            enabled: false,
+          },
+          ...rest,
         },
       );
       const originalModel = (window as any).monaco.editor.createModel(
