@@ -1,7 +1,7 @@
-import * as vscodeThemeToMonacoThemeWeb from 'vscode-theme-to-monaco-theme-web';
 import { wireTmGrammars } from 'monaco-editor-textmate';
 import { loadWASM } from 'onigasm';
 import { Registry } from 'monaco-textmate';
+import covertTheme from './convert-theme';
 import darkPlus from './theme/dark-plus.json';
 import lightPlus from './theme/light-plus.json';
 
@@ -51,8 +51,8 @@ export const loadVscodeTheme = async (monaco, editor, language) => {
   // 注册
   monaco.languages.register({ id: language });
   // 重新覆盖主题
-  monaco.editor.defineTheme('vs-dark', vscodeThemeToMonacoThemeWeb.convertTheme(darkPlus));
-  monaco.editor.defineTheme('vs', vscodeThemeToMonacoThemeWeb.convertTheme(lightPlus));
+  monaco.editor.defineTheme('vs-dark', covertTheme(darkPlus));
+  monaco.editor.defineTheme('vs', covertTheme(lightPlus));
   setTimeout(() => {
     wireTmGrammars(monaco, registry, grammars, editor);
   }, 100);
