@@ -21,11 +21,13 @@ export const loadVscodeTheme = async (monaco, editor, language) => {
     {
       css: 'source.css',
       html: 'text.html.basic',
+      json: 'source.json',
       less: 'source.css.less',
       typescript: 'source.ts',
       javascript: 'source.js',
-      javascriptreact: 'source.js.jsx',
-      json: 'source.json',
+      // typescriptreact: 'source.ts.tsx',
+      // javascriptreact: 'source.js.jsx',
+     
     }[language],
   );
   // 创建一个注册表，可以从作用域名称创建语法
@@ -35,10 +37,11 @@ export const loadVscodeTheme = async (monaco, editor, language) => {
         'text.html.basic': 'html.tmLanguage.json',
         'source.css': 'css.tmLanguage.json',
         'source.css.less': 'less.tmLanguage.json',
+        'source.json': 'JSON.tmLanguage.json',
         'source.ts': 'TypeScript.tmLanguage.json',
         'source.js': 'JavaScript.tmLanguage.json',
-        'source.js.jsx': 'JavaScriptReact.tmLanguage.json',
-        'source.json': 'JSON.tmLanguage.json',
+        // 'source.js.jsx': 'JavaScriptReact.tmLanguage.json',
+        // 'source.ts.tsx': 'TypeScriptReact.tmLanguage.json',
       }[scopeName];
       return path
         ? {

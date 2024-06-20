@@ -86,7 +86,7 @@ export const CodeEditor = memo(
     onChange = () => {},
     onSave,
     style = {},
-    language = 'javascriptreact',
+    language = 'javascript',
     theme = 'vs-dark',
     codeRef = useRef<any>({}),
     minimapEnabled = true,
