@@ -1,14 +1,15 @@
+import * as vscodeThemeToMonacoThemeWeb from 'vscode-theme-to-monaco-theme-web';
 import { wireTmGrammars } from 'monaco-editor-textmate';
 import { loadWASM } from 'onigasm';
 import { Registry } from 'monaco-textmate';
-import vsDarkPlus from './vs-dark-plus';
-import vsLightPlus from './vs-light-plus';
+import darkPlus from './theme/dark-plus.json';
+import lightPlus from './theme/light-plus.json';
 
 const OssUrl = 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/monaco';
 
 let hasLoadOnigasm = false;
 
-export const loadDarkPlusTheme = async (monaco, editor, language) => {
+export const loadVscodeTheme = async (monaco, editor, language) => {
   // 加载onigasm的WebAssembly文件
   if (!hasLoadOnigasm) {
     hasLoadOnigasm = true;
@@ -50,8 +51,8 @@ export const loadDarkPlusTheme = async (monaco, editor, language) => {
   // 注册
   monaco.languages.register({ id: language });
   // 重新覆盖主题
-  monaco.editor.defineTheme('vs-dark', vsDarkPlus);
-  monaco.editor.defineTheme('vs', vsLightPlus);
+  monaco.editor.defineTheme('vs-dark', vscodeThemeToMonacoThemeWeb.convertTheme(darkPlus));
+  monaco.editor.defineTheme('vs', vscodeThemeToMonacoThemeWeb.convertTheme(lightPlus));
   setTimeout(() => {
     wireTmGrammars(monaco, registry, grammars, editor);
   }, 100);

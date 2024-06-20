@@ -6,6 +6,8 @@ import less from 'rollup-plugin-less';
 import external from 'rollup-plugin-peer-deps-external';
 import { terser } from 'rollup-plugin-terser';
 import replace from 'rollup-plugin-replace';
+import json from '@rollup/plugin-json';
+
 
 const env = process.env.NODE_ENV;
 
@@ -35,6 +37,7 @@ export default defineConfig({
     resolve(),
     external(),
     commonjs(),
+    json(),
     replace({
       'process.env.NODE_ENV': JSON.stringify(env),
     }),

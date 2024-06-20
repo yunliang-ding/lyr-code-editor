@@ -7,7 +7,7 @@ import JsonEditor from './json-editor';
 import Diff from './diff';
 import LessEditor from './less-editor';
 import loader from '@monaco-editor/loader';
-import { loadDarkPlusTheme } from './wasm';
+import { loadVscodeTheme } from './wasm';
 import './index.less';
 
 export interface CodeProps {
@@ -186,7 +186,7 @@ export const CodeEditor = memo(
       //  同步 window
       monacoInstance.then((editor: any) => {
         window[id] = editor;
-        loadDarkPlusTheme((window as any).monaco, editor, language);  // 加载dark+、light+主题
+        loadVscodeTheme((window as any).monaco, editor, language);  // 加载dark+、light+主题
       });
       // 挂到 ref
       codeRef.current.getMonacoInstance = async () => {
