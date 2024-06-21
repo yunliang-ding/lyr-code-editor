@@ -38,7 +38,7 @@ yarn add lyr-code-editor
 - 基于 monaco-editor 二次封装
 - 使用 @monaco-editor/loader 优化加载
 - 更多用法 参考 [monaco](https://microsoft.github.io/monaco-editor/playground.html)
-- 关于使用 `vscode主题` 参考 [如何在monaco中使用vscode主题](https://www.yunliang.cloud/#/components/monaco-theme)
+- 关于使用 `vscode主题` 参考 [如何在 monaco 中使用 vscode 主题](https://www.yunliang.cloud/#/components/monaco-theme)
 
 ## 基本使用
 
@@ -98,6 +98,7 @@ import ReactDom from 'react-dom';
 ## 使用 JSON 模式
 
 ```tsx | react
+import { Button } from '@arco-design/web-react';
 import { CodeEditor } from 'lyr-code-editor';
 
 export default () => {
@@ -117,7 +118,9 @@ export default () => {
   ];
   return (
     <>
-      <h3>请查看控制台打印、当内容发生改变</h3>
+      <Button type="primary">内容发生改变，查看控制台打印</Button>
+      <br />
+      <br />
       <CodeEditor
         mode="json"
         value={value}

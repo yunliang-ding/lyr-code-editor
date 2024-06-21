@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable no-bitwise */
 import { uuid } from '@/tools';
-import { useEffect, useRef, CSSProperties, memo } from 'react';
+import { useEffect, useRef, CSSProperties, memo, useMemo } from 'react';
 import FunctionEditor from './function-editor';
 import JsonEditor from './json-editor';
 import Diff from './diff';
@@ -25,7 +25,7 @@ export interface CodeProps {
    * 主题
    * @default vs-dark
    */
-   theme?: 'vs-dark' | 'vs';
+  theme?: 'vs-dark' | 'vs';
   /**
    * 是否展示小地图
    * @default true
@@ -81,7 +81,7 @@ export interface CodeProps {
  */
 export const CodeEditor = memo(
   ({
-    id = `monaco_${uuid(8)}`,
+    id = useMemo(() => `monaco_${uuid(8)}`, []),
     value = '',
     onChange = () => {},
     onSave,
@@ -96,6 +96,9 @@ export const CodeEditor = memo(
   }: CodeProps) => {
     /** 创建实例 */
     const createInstance = (monaco: any) => {
+      if(!document.getElementById(id)){
+        return;
+      }
       const codeInstance = monaco.editor.create(document.getElementById(id), {
         theme,
         language,
@@ -103,7 +106,7 @@ export const CodeEditor = memo(
         automaticLayout: true,
         tabSize: 2,
         fontSize: 14,
-        fontWeight: "600",
+        fontWeight: '600',
         minimap: {
           enabled: minimapEnabled,
         },
@@ -177,23 +180,27 @@ export const CodeEditor = memo(
             // @see https://github.com/microsoft/monaco-editor/issues/2283
             delete (window as any).define.amd;
           }
-          res(createInstance(monaco));
+          try {
+            res(createInstance(monaco));
+          } catch (error) {
+            console.log(error)
+          }
         });
       });
     };
     useEffect(() => {
       const monacoInstance = initialLoad();
-      //  同步 window
-      monacoInstance.then((editor: any) => {
-        window[id] = editor;
-        loadVscodeTheme((window as any).monaco, editor, language);  // 加载dark+、light+主题
-      });
-      // 挂到 ref
-      codeRef.current.getMonacoInstance = async () => {
-        return monacoInstance;
-      };
-      // 吐出 ref
-      onLoad(codeRef.current);
+        //  同步 window
+        monacoInstance.then((editor: any) => {
+          window[id] = editor;
+          loadVscodeTheme((window as any).monaco, editor, language); // 加载dark+、light+主题
+        });
+        // 挂到 ref
+        codeRef.current.getMonacoInstance = async () => {
+          return monacoInstance;
+        };
+        // 吐出 ref
+        onLoad(codeRef.current);
     }, []);
     // 更新值
     useEffect(() => {

@@ -26,7 +26,6 @@ class BabelCompile {
         this.require,
         this.exports,
       );
-      console.log(this.exports);
       return this.exports?.default ? this.exports?.default : this.exports;
     } catch (error) {
       console.log('catch run es5 code error:', error);

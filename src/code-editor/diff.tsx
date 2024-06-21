@@ -1,7 +1,8 @@
 /* eslint-disable no-bitwise */
-import { CSSProperties, useEffect } from 'react';
+import { CSSProperties, useEffect, useMemo } from 'react';
 import loader from '@monaco-editor/loader';
 import './index.less';
+import { uuid } from 'lyr-extra';
 
 export interface MonacoDiffProps {
   id?: string;
@@ -14,7 +15,7 @@ export interface MonacoDiffProps {
 }
 
 export default ({
-  id = 'monaco-container-diff',
+  id = useMemo(() => `monacoDiff_${uuid(8)}`, []),
   value = '',
   originalValue = '',
   language = 'javascript',
@@ -29,7 +30,12 @@ export default ({
         vs: rest.cdnPath,
       },
     });
+    try {
+    } catch (error) {}
     loader.init().then((monaco) => {
+      if (!document.getElementById(id)) {
+        return;
+      }
       const diffEditor = monaco.editor.createDiffEditor(
         document.getElementById(id),
         {
