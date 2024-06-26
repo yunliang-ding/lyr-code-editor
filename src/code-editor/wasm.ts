@@ -2,7 +2,8 @@ import { wireTmGrammars } from 'monaco-editor-textmate';
 import { loadWASM } from 'onigasm';
 import { Registry } from 'monaco-textmate';
 import covertTheme from './convert-theme';
-import darkPlus from './theme/dark-plus.json';
+// import darkPlus from './theme/dark-plus.json';
+import oneDarkProPlus from './theme/one-dark-pro.json';
 import lightPlus from './theme/light-plus.json';
 
 const OssUrl = 'https://lyr-cli-oss.oss-cn-beijing.aliyuncs.com/monaco';
@@ -54,7 +55,7 @@ export const loadVscodeTheme = async (monaco, editor, language) => {
   // 注册
   monaco.languages.register({ id: language });
   // 重新覆盖主题
-  monaco.editor.defineTheme('vs-dark', covertTheme(darkPlus));
+  monaco.editor.defineTheme('vs-dark', covertTheme(oneDarkProPlus));
   monaco.editor.defineTheme('vs', covertTheme(lightPlus));
   setTimeout(() => {
     wireTmGrammars(monaco, registry, grammars, editor);
