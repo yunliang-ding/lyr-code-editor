@@ -401,46 +401,4 @@ export default () => {
 
 ## 一分钟搭建 PlayGround
 
-```tsx | react
-import ReactDom from 'react-dom';
-import { Button } from '@arco-design/web-react';
-import { CodeEditor } from 'lyr-code-editor';
-
-export default () => {
-  const codeRef = React.useRef({});
-  const runApi = async () => {
-    const fns = codeRef.current.getModule();
-    ReactDom.render(fns(), document.querySelector('#__result__'));
-  };
-  React.useEffect(() => {
-    runApi();
-  }, []);
-  return (
-    <>
-      <Button type="primary" onClick={runApi}>
-        运行
-      </Button>
-      <br />
-      <br />
-      <div style={{ width: '100%', display: 'flex' }}>
-        <CodeEditor
-          mode="function"
-          style={{ width: '50%', height: 300 }}
-          codeRef={codeRef}
-          value={`export default () => {
-  return <div>hello world</div>
-};`}
-        />
-        <div
-          id="__result__"
-          style={{
-            width: '50%',
-            height: 300,
-            border: '1px solid var(--color-fill-3)',
-          }}
-        />
-      </div>
-    </>
-  );
-};
-```
+[点击查看](https://dev-ops.yunliang.cloud/website/lyr-extra#/components/react-playground)
