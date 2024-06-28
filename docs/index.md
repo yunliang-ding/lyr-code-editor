@@ -38,7 +38,7 @@ yarn add lyr-code-editor
 - 基于 monaco-editor 二次封装
 - 使用 @monaco-editor/loader 优化加载
 - 更多用法 参考 [monaco](https://microsoft.github.io/monaco-editor/playground.html)
-- 关于使用 `vscode主题` 参考 [如何在 monaco 中使用 vscode 主题](https://www.yunliang.cloud/#/components/monaco-theme)
+- 关于使用 `vscode主题` 参考 [如何在 monaco 中使用 vscode 主题](https://www.yunliang.cloud/#/blog/monaco-theme)
 
 ## 基本使用
 
