@@ -96,7 +96,7 @@ export const CodeEditor = memo(
   }: CodeProps) => {
     /** 创建实例 */
     const createInstance = (monaco: any) => {
-      if(!document.getElementById(id)){
+      if (!document.getElementById(id)) {
         return;
       }
       const codeInstance = monaco.editor.create(document.getElementById(id), {
@@ -183,24 +183,24 @@ export const CodeEditor = memo(
           try {
             res(createInstance(monaco));
           } catch (error) {
-            console.log(error)
+            console.log(error);
           }
         });
       });
     };
     useEffect(() => {
       const monacoInstance = initialLoad();
-        //  同步 window
-        monacoInstance.then((editor: any) => {
-          window[id] = editor;
-          loadVscodeTheme((window as any).monaco, editor, language); // 加载dark+、light+主题
-        });
-        // 挂到 ref
-        codeRef.current.getMonacoInstance = async () => {
-          return monacoInstance;
-        };
-        // 吐出 ref
-        onLoad(codeRef.current);
+      //  同步 window
+      monacoInstance.then((editor: any) => {
+        window[id] = editor;
+        loadVscodeTheme((window as any).monaco, editor, language); // 加载dark+、light+主题
+      });
+      // 挂到 ref
+      codeRef.current.getMonacoInstance = async () => {
+        return monacoInstance;
+      };
+      // 吐出 ref
+      onLoad(codeRef.current);
     }, []);
     // 更新值
     useEffect(() => {

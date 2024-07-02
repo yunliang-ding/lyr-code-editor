@@ -1,8 +1,8 @@
 /* eslint-disable no-bitwise */
 import { CSSProperties, useEffect, useMemo } from 'react';
 import loader from '@monaco-editor/loader';
-import './index.less';
 import { uuid } from 'lyr-extra';
+import './index.less';
 
 export interface MonacoDiffProps {
   id?: string;

@@ -34,7 +34,7 @@
     "lyr-extra":"0.1.1"
   },
   "devDependencies": {
-    "lyr-docs": "0.0.85",
+    "lyr-docs": "0.0.86",
     "path-browserify": "1.0.1"
   },
   "resolutions": {
