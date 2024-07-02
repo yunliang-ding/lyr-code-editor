@@ -1,3 +1,32 @@
+```jsx | pureReact
+export default () => {
+  return (
+    <>
+      <p
+        className="package-version"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: 20,
+          position: 'relative',
+          top: 3,
+        }}
+      >
+        <a href={`https://npmmirror.com/package/lyr-code-editor`} target="_blank">
+          <img alt="npm" src={`https://img.shields.io/npm/dt/lyr-code-editor`} />
+        </a>
+        <a href={`https://npmmirror.com/package/lyr-code-editor`} target="_blank">
+          <img
+            alt="NPM downloads"
+            src={`https://img.shields.io/npm/v/lyr-code-editor.svg`}
+          />
+        </a>
+      </p>
+    </>
+  );
+};
+```
+
 ## 安装
 
 ```shell
@@ -401,4 +430,4 @@ export default () => {
 
 ## 一分钟搭建 PlayGround
 
-[点击查看](https://dev-ops.yunliang.cloud/website/lyr-extra#/components/react-playground)
+[点击查看](https://dev-ops.yunliang.cloud/website/lyr-code-editor#/components/react-playground)
